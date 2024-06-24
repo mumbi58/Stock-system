@@ -5,7 +5,9 @@ import Sidebar from './Components/SideBar';
 import MainContent from './Components/MainContent';
 import { Route, Routes, } from 'react-router-dom';
 import Sales from './Components/Sales';
-import Products from './Components/Products';
+
+import Products from './Components/Product/Products';
+import Product1 from './Components/Product/Product1';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -26,7 +28,7 @@ function App() {
               <Route path="/sales" element={<Sales />} />
               {/* <Route path="/stock" element={<Stock />} /> */}
               <Route path="/products" element={<Products />} />
-              {/* <Route path="/logout" element={<Logout />} /> */}
+              <Route path="/product/:id" element={<Product1 />} />
             </Routes>
           </Box>
         {/* <MainContent /> */}

@@ -2,7 +2,8 @@
 import React from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
 import Users from './Users';
-import Products from './Products';
+
+import Products from './Product/Products';
 import Sales from './Sales';
 
 function DashboardCards() {
