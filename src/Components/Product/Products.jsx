@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Link as ReactRouterLink } from "react-router-dom"; // Import React Router's Link
-
+import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Link as ChakraLink,Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, IconButton, TableContainer } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import AddProducts from './AddProducts';
 import Product1 from './Product1';
 
-
-
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [showProduct, setshowPoduct] = useState(false)
+  const [addproduct,setAddproduct] = useState([])
 
   const productvisibility = ()=>{
     setshowPoduct(!showProduct)
 
   }
 
+  const AddItem = () =>{
+    setAddproduct(addproduct)
+  }
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -40,10 +41,11 @@ export default function Products() {
       <Stat>
         <Flex justify="space-between" align="center">
         <StatLabel>Product list</StatLabel>
-        
+        <ChakraLink as={ReactRouterLink} to="/product">
         <IconButton aria-label='Add product' 
         colorScheme='blue' icon={<AddIcon />}
-         onClick={AddProducts}/> 
+         onClick={AddItem}/> 
+         </ChakraLink>
           
           
         </Flex>

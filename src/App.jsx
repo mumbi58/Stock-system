@@ -8,6 +8,7 @@ import Sales from './Components/Sales';
 
 import Products from './Components/Product/Products';
 import Product1 from './Components/Product/Product1';
+import AddProducts from './Components/Product/AddProducts';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -29,6 +30,7 @@ function App() {
               {/* <Route path="/stock" element={<Stock />} /> */}
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<Product1 />} />
+              <Route path="/product/" element={<AddProducts />} />
             </Routes>
           </Box>
         {/* <MainContent /> */}
