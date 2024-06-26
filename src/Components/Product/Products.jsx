@@ -8,16 +8,16 @@ import Product1 from './Product1';
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [showProduct, setshowPoduct] = useState(false)
-  const [addproduct,setAddproduct] = useState([])
+  // const [addproduct,setAddproduct] = useState([])
 
   const productvisibility = ()=>{
     setshowPoduct(!showProduct)
 
   }
 
-  const AddItem = () =>{
-    setAddproduct(addproduct)
-  }
+  // const AddItem = () =>{
+  //   setAddproduct(addproduct)
+  // }
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -44,7 +44,8 @@ export default function Products() {
         <ChakraLink as={ReactRouterLink} to="/product">
         <IconButton aria-label='Add product' 
         colorScheme='blue' icon={<AddIcon />}
-         onClick={AddItem}/> 
+        // onClick={AddItem}
+         /> 
          </ChakraLink>
           
           
