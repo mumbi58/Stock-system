@@ -9,3 +9,5 @@ Currently, two official plugins are available:
 
 <!-- running backend  -->
 json-server --watch ./.data/data.json --port 8000.
+json-server --watch ./.data/data.json --port 8000.
+
