@@ -5,22 +5,32 @@ import { AddIcon } from '@chakra-ui/icons';
 export default function AddProducts() {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
+  const [reorderLevel, setReorderLevel] = useState();
+  const [quantity, setQuantity] = useState();
+  const [description, setDescription] = useState('');
+
+
+
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
   const handleAddProduct = async () => {
     try {
-      if (!productName || !productPrice) {
+      if (!productName || !productPrice || !quantity || !description || !reorderLevel) {
         setError("Please fill in all fields.");
         return;
       }
 
       const newProduct = {
         name: productName,
-        price: parseFloat(productPrice)
+        price: parseFloat(productPrice),
+        quantity,
+        description,
+        reorder_level: reorderLevel
+
       };
 
-      const response = await fetch("http://localhost:5000/products", {
+      const response = await fetch("http://localhost:8000/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -34,6 +44,13 @@ export default function AddProducts() {
 
       setProductName("");
       setProductPrice("");
+      setQuantity('');
+      setDescription('');
+      setReorderLevel('');
+      
+      
+
+
       setSuccess(true);
       setError(null);
 
@@ -48,7 +65,13 @@ export default function AddProducts() {
       <FormLabel>Name</FormLabel>
       <Input type='text' value={productName} onChange={(e) => setProductName(e.target.value)} />
       <FormLabel>Price</FormLabel>
-      <Input type='text' value={productPrice} onChange={(e) => setProductPrice(e.target.value)} />
+      <Input type='number' value={productPrice} onChange={(e) => setProductPrice(e.target.value)} />
+      <FormLabel>Description</FormLabel>
+      <Input type='text' value={description} onChange={(e) => setDescription(e.target.value)} />
+      <FormLabel>Quantity</FormLabel>
+      <Input type='number' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+      <FormLabel>Re-Order Level</FormLabel>
+      <Input type='number' value={reorderLevel} onChange={(e) => setReorderLevel(e.target.value)} />
       <IconButton onClick={handleAddProduct} icon={<AddIcon />} />
 
       {error && (

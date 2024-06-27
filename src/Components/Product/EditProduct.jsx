@@ -7,6 +7,9 @@ export default function EditProduct() {
     const navigate = useNavigate();
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
+    const [reorderLevel, setReorderLevel] = useState();
+    const [quantity, setQuantity] = useState();
+    const [description, setDescription] = useState('');
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -14,6 +17,9 @@ export default function EditProduct() {
             const product = await response.json();
             setProductName(product.name);
             setProductPrice(product.price);
+            setQuantity(product.quantity);
+            setDescription(product.description);
+            setReorderLevel(product.reorder_level);
         };
 
         fetchProduct();
@@ -24,7 +30,10 @@ export default function EditProduct() {
 
         const updatedProduct = {
             name: productName,
-            price: parseFloat(productPrice)
+            price: parseFloat(productPrice),
+            quantity,
+            description,
+            reorder_level: reorderLevel
         };
 
         const response = await fetch(`http://localhost:8000/products/${id}`, {
@@ -38,8 +47,11 @@ export default function EditProduct() {
         if (response.ok) {
             setProductName("");
             setProductPrice("");
+            setQuantity('');
+            setDescription('');
+            setReorderLevel('');
             console.log('Product updated successfully');
-            navigate('/products');  
+            navigate('/products');
         } else {
             const result = await response.json();
             console.error('Failed to update product:', result);
@@ -48,20 +60,44 @@ export default function EditProduct() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <FormControl>
+            <FormControl isRequired>
                 <FormLabel>Name</FormLabel>
-                <Input 
-                    type="text" 
-                    value={productName} 
-                    onChange={(e) => setProductName(e.target.value)} 
+                <Input
+                    type="text"
+                    value={productName}
+                    onChange={(e) => setProductName(e.target.value)}
                 />
             </FormControl>
-            <FormControl>
+            <FormControl isRequired>
                 <FormLabel>Price</FormLabel>
-                <Input 
-                    type="number" 
-                    value={productPrice} 
-                    onChange={(e) => setProductPrice(e.target.value)} 
+                <Input
+                    type="number"
+                    value={productPrice}
+                    onChange={(e) => setProductPrice(e.target.value)}
+                />
+            </FormControl>
+            <FormControl isRequired>
+                <FormLabel>Quantity</FormLabel>
+                <Input
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                />
+            </FormControl>
+            <FormControl isRequired>
+                <FormLabel>Description</FormLabel>
+                <Input
+                    type="text"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                />
+            </FormControl>
+            <FormControl isRequired>
+                <FormLabel>Reorder</FormLabel>
+                <Input
+                    type="number"
+                    value={reorderLevel}
+                    onChange={(e) => setReorderLevel(e.target.value)}
                 />
             </FormControl>
             <Button type="submit" mt={4}>Update Product</Button>

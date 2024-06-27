@@ -75,7 +75,7 @@ export default function Products() {
                     <ButtonGroup gap="1">
                       <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}` }onClick={EditProduct} >
                         <Button colorScheme='blue' size="sm" leftIcon={<EditIcon />} >edit</Button></ChakraLink>
-                        <ChakraLink as={ReactRouterLink} to="/delete" onClick={Deleteproduct}>
+                        <ChakraLink as={ReactRouterLink} to={`/delete/${product.id}` }onClick={Deleteproduct}>
                       <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button></ChakraLink>
 
 

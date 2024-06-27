@@ -45,46 +45,6 @@
   ],
   "products": [
     {
-      "id": "1",
-      "name": "Product y",
-      "description": "Description for Product A",
-      "quantity": 100,
-      "reorder_level": 20,
-      "price": 40
-    },
-    {
-      "id": "2",
-      "name": "plates",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 1500
-    },
-    {
-      "id": "3",
-      "name": "Product B",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15
-    },
-    {
-      "id": "4",
-      "name": "SODA",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 150
-    },
-    {
-      "id": "5",
-      "name": "cups",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15
-    },
-    {
       "id": "6",
       "name": "BAGS",
       "description": "Description for Product B",
@@ -101,14 +61,6 @@
       "price": 987
     },
     {
-      "id": "8",
-      "name": "Product B",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15
-    },
-    {
       "id": "9",
       "name": "PEANUTS",
       "description": "Description for Product B",
@@ -123,6 +75,14 @@
       "quantity": 50,
       "reorder_level": 10,
       "price": 80
+    },
+    {
+      "id": "38b2",
+      "name": "laptop",
+      "price": 30000,
+      "quantity": "50",
+      "description": "hp pro book",
+      "reorder_level": "20"
     }
   ],
   "purchases": [
