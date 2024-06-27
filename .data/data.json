@@ -1,43 +1,43 @@
 {
   "roles": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Super Admin"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Admin"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Shop Attendant"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Auditor"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "superadmin",
       "password": "securepassword",
       "role_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "admin1",
       "password": "securepassword",
       "role_id": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "attendant1",
       "password": "securepassword",
       "role_id": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "username": "auditor1",
       "password": "securepassword",
       "role_id": 4
@@ -45,93 +45,96 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "Product A",
+      "id": "1",
+      "name": "Product y",
       "description": "Description for Product A",
       "quantity": 100,
       "reorder_level": 20,
-      "price": 10.00
+      "price": 40
     },
     {
-      "id": 2,
-      "name": "Product B",
+      "id": "2",
+      "name": "plates",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
+      "price": 1500
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Product B",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
+      "price": 15
     },
     {
-      "id": 4,
-      "name": "Product B",
+      "id": "4",
+      "name": "SODA",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
+      "price": 150
     },
     {
-      "id": 5,
-      "name": "Product B",
+      "id": "5",
+      "name": "cups",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
-    } ,{
-      "id": 6,
-      "name": "Product B",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15.00
-    }, {
-      "id": 7,
-      "name": "Product B",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15.00
-    }, {
-      "id": 8,
-      "name": "Product B",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 15.00
+      "price": 15
     },
     {
-      "id": 9,
-      "name": "Product B",
+      "id": "6",
+      "name": "BAGS",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
+      "price": 1500
     },
     {
-      "id": 10,
+      "id": "7",
+      "name": "CAKE",
+      "description": "Description for Product B",
+      "quantity": 50,
+      "reorder_level": 10,
+      "price": 987
+    },
+    {
+      "id": "8",
       "name": "Product B",
       "description": "Description for Product B",
       "quantity": 50,
       "reorder_level": 10,
-      "price": 15.00
+      "price": 15
+    },
+    {
+      "id": "9",
+      "name": "PEANUTS",
+      "description": "Description for Product B",
+      "quantity": 50,
+      "reorder_level": 10,
+      "price": 89
+    },
+    {
+      "id": "10",
+      "name": "CUPS",
+      "description": "Description for Product B",
+      "quantity": 50,
+      "reorder_level": 10,
+      "price": 80
     }
   ],
   "purchases": [
     {
-      "id": 1,
+      "id": "1",
       "product_id": 1,
       "quantity": 50,
       "purchase_date": "2024-06-01",
       "supplier": "Supplier A"
     },
     {
-      "id": 2,
+      "id": "2",
       "product_id": 2,
       "quantity": 30,
       "purchase_date": "2024-06-02",
@@ -140,21 +143,20 @@
   ],
   "sales": [
     {
-      "id": 1,
+      "id": "1",
       "product": 300
-      
     }
   ],
   "notifications": [
     {
-      "id": 1,
+      "id": "1",
       "product_id": 1,
       "message": "Product A stock is below reorder level",
       "notification_date": "2024-06-07",
       "status": "unread"
     },
     {
-      "id": 2,
+      "id": "2",
       "product_id": 2,
       "message": "Product B stock is below reorder level",
       "notification_date": "2024-06-08",
@@ -163,13 +165,13 @@
   ],
   "reports": [
     {
-      "id": 1,
+      "id": "1",
       "report_type": "Sales",
       "generated_date": "2024-06-10",
       "content": "Report content for Sales"
     },
     {
-      "id": 2,
+      "id": "2",
       "report_type": "Purchases",
       "generated_date": "2024-06-11",
       "content": "Report content for Purchases"
