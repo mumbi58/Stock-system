@@ -19,55 +19,87 @@
   ],
   "users": [
     {
-      "id": "1",
-      "username": "superadmin",
-      "password": "securepassword",
-      "role_id": 1
+      "email": "jane.smith@example.com",
+      "userName": "John doe",
+      "status": "disabled",
+      "role": "auditor",
+      "firstName": "Jane",
+      "secondName": "Smith",
+      "password": "userpass456",
+      "id": "2"
     },
     {
-      "id": "2",
-      "username": "admin1",
-      "password": "securepassword",
-      "role_id": 2
+      "email": "mumbi@gmail.com",
+      "userName": "Mumbii",
+      "status": "active",
+      "role": "Admin",
+      "firstName": "Mumbi",
+      "secondName": "Kariuki",
+      "password": "123456",
+      "id": "13d0"
     },
     {
-      "id": "3",
-      "username": "attendant1",
-      "password": "securepassword",
-      "role_id": 3
+      "email": "jmwaijk@gmail.com",
+      "userName": "jmwai",
+      "status": "active",
+      "role": "admin",
+      "firstName": "Mwai",
+      "secondName": "John",
+      "password": "LAhNXd8F",
+      "id": "030d"
     },
     {
-      "id": "4",
-      "username": "auditor1",
-      "password": "securepassword",
-      "role_id": 4
+      "email": "rmumbi@gmail",
+      "userName": "rmumbi",
+      "status": "active",
+      "role": "admin",
+      "firstName": "Regina",
+      "secondName": "mumbi",
+      "password": "aeKIZSvg",
+      "id": "d0ee"
+    },
+    {
+      "email": "tehss@gmail.com",
+      "userName": "babba",
+      "status": "active",
+      "role": "shop keeper",
+      "firstName": "baba",
+      "secondName": "bab",
+      "password": "i3kdiatZ",
+      "id": "0607"
+    },
+    {
+      "email": "sakinyi@gmail.com",
+      "userName": "sakinyi",
+      "status": "active",
+      "role": "admin",
+      "firstName": "schola",
+      "secondName": "akinyi",
+      "password": "90gbcHLT",
+      "id": "a0fe"
+    },
+    {
+      "email": "akinyi@gmail.com",
+      "userName": "sakinyi",
+      "status": "inactive",
+      "role": "auditor",
+      "firstName": "Akinyi",
+      "secondName": "schola",
+      "password": "rzdS9w75",
+      "id": "b86e"
+    },
+    {
+      "id": "5f32",
+      "firstName": "Lucy",
+      "secondName": "Wambui",
+      "userName": "lwambui",
+      "email": "wambui@gmail.com",
+      "status": "inactive",
+      "role": "shop keeper",
+      "password": "rdRKl5oq"
     }
   ],
   "products": [
-    {
-      "id": "6",
-      "name": "BAGS",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 1500
-    },
-    {
-      "id": "7",
-      "name": "CAKE",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 987
-    },
-    {
-      "id": "9",
-      "name": "PEANUTS",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": 10,
-      "price": 89
-    },
     {
       "id": "10",
       "name": "CUPS",
@@ -79,10 +111,18 @@
     {
       "id": "38b2",
       "name": "laptop",
-      "price": 30000,
+      "price": 3000,
       "quantity": "50",
       "description": "hp pro book",
       "reorder_level": "20"
+    },
+    {
+      "id": "8ee3",
+      "name": "water",
+      "price": 45,
+      "quantity": "460",
+      "description": "hahahhaha",
+      "reorder_level": "30"
     }
   ],
   "purchases": [
