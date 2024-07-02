@@ -11,6 +11,10 @@ import Product1 from './Components/Product/Product1';
 import AddProducts from './Components/Product/AddProducts';
 import Deleteproduct from './Components/Product/Deleteproduct';
 import EditProduct from './Components/Product/EditProduct';
+import Users from './Components/User/Users';
+import AddUser from './Components/User/AddUser';
+import EditUser from './Components/User/EditUser';
+import DeleteUser from './Components/User/DeleteUser';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -35,6 +39,12 @@ function App() {
               <Route path="/product/" element={<AddProducts />} />
               <Route path="/delete/:id" element={<Deleteproduct />} />
               <Route path="/edit/:id" element={<EditProduct/>} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/user" element={<AddUser/>} />
+              <Route path="/user/:id" element={<EditUser/>} />
+              <Route path="/deleteuser/:id" element={<DeleteUser/>} />
+
+
             </Routes>
           </Box>
         {/* <MainContent /> */}
