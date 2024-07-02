@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormControl, FormLabel, Input, IconButton } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { AddIcon } from '@chakra-ui/icons';
 
 export default function AddProducts() {
@@ -72,7 +72,9 @@ export default function AddProducts() {
       <Input type='number' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
       <FormLabel>Re-Order Level</FormLabel>
       <Input type='number' value={reorderLevel} onChange={(e) => setReorderLevel(e.target.value)} />
-      <IconButton onClick={handleAddProduct} icon={<AddIcon />} />
+     
+      <Button onClick={handleAddProduct} leftIcon={<AddIcon />} colorScheme='blue' size="sm" mt={4}>Add</Button>
+
 
       {error && (
         <div style={{ color: 'red' }}>{error}</div>

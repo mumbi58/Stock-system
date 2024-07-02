@@ -43,9 +43,9 @@ export default function Product1({ productId }) {
             <Th>Reorder Level</Th>
           </Tr>
         </Thead>
-        <Tbody>
+        <Tbody >
           {/* {item.map((product) => ( */}
-          <Tr key={item.id}>
+          <Tr key={item.id}style={{fontSize:'16px'}}>
             <Td>{item.name}</Td>
             <Td>{item.quantity}</Td>
             <Td>{item.description}</Td>

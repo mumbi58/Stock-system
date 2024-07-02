@@ -42,12 +42,10 @@ export default function Products() {
     <Box p="5" shadow="md" width="100%" height="100%">
       <Stat>
         <Flex justify="space-between" align="center">
-          <StatLabel>Product list</StatLabel>
+          <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
           <ChakraLink as={ReactRouterLink} to="/product">
-            <IconButton aria-label='Add product'
-              colorScheme='blue' icon={<AddIcon />}
-            // onClick={AddItem}
-            />
+          
+            <Button leftIcon={<AddIcon />} colorScheme='blue' size="sm">Add</Button>
           </ChakraLink>
 
 
@@ -66,17 +64,17 @@ export default function Products() {
               </Thead>
               <Tbody>
                 {products.map((product) => (
-                  <Tr key={product.id}>
+                  <Tr key={product.id} style={{ fontSize: '16px', fontWeight: "normal" }}>
 
                     <ChakraLink as={ReactRouterLink} to={`/product/${product.id}`} onClick={productvisibility} cursor="pointer">
                       {product.name}
                     </ChakraLink>
                     <Td>{product.price}</Td>
                     <ButtonGroup gap="1">
-                      <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}` }onClick={EditProduct} >
+                      <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}`} onClick={EditProduct} >
                         <Button colorScheme='blue' size="sm" leftIcon={<EditIcon />} >edit</Button></ChakraLink>
-                        <ChakraLink as={ReactRouterLink} to={`/delete/${product.id}` }onClick={Deleteproduct}>
-                      <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button></ChakraLink>
+                      <ChakraLink as={ReactRouterLink} to={`/delete/${product.id}`} onClick={Deleteproduct}>
+                        <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button></ChakraLink>
 
 
 
