@@ -26,22 +26,24 @@
       "firstName": "Jane",
       "secondName": "Smith",
       "password": "userpass456",
-      "id": "2"
+      "id": "2",
+      "disabled": true
     },
     {
       "email": "mumbi@gmail.com",
-      "userName": "Mumbii",
-      "status": "active",
+      "userName": "h",
+      "status": "disabled",
       "role": "Admin",
       "firstName": "Mumbi",
       "secondName": "Kariuki",
       "password": "123456",
-      "id": "13d0"
+      "id": "13d0",
+      "disabled": true
     },
     {
       "email": "jmwaijk@gmail.com",
       "userName": "jmwai",
-      "status": "active",
+      "status": "disabled",
       "role": "admin",
       "firstName": "Mwai",
       "secondName": "John",
@@ -51,12 +53,13 @@
     {
       "email": "rmumbi@gmail",
       "userName": "rmumbi",
-      "status": "active",
+      "status": "disabled",
       "role": "admin",
       "firstName": "Regina",
       "secondName": "mumbi",
       "password": "aeKIZSvg",
-      "id": "d0ee"
+      "id": "d0ee",
+      "disabled": true
     },
     {
       "email": "tehss@gmail.com",
@@ -81,7 +84,7 @@
     {
       "email": "akinyi@gmail.com",
       "userName": "sakinyi",
-      "status": "inactive",
+      "status": "active",
       "role": "auditor",
       "firstName": "Akinyi",
       "secondName": "schola",
@@ -97,6 +100,46 @@
       "status": "inactive",
       "role": "shop keeper",
       "password": "rdRKl5oq"
+    },
+    {
+      "id": "d7be",
+      "firstName": "t",
+      "secondName": "y",
+      "userName": "u",
+      "email": "hj",
+      "status": "inactive",
+      "role": "shop keeper",
+      "password": "rxoYhOal"
+    },
+    {
+      "id": "6ebc",
+      "firstName": "h",
+      "secondName": "j",
+      "userName": "j",
+      "email": "j",
+      "status": "inactive",
+      "role": "shop keeper",
+      "password": "yFUgIqJb"
+    },
+    {
+      "email": "h@gmail",
+      "userName": "j",
+      "status": "active",
+      "role": "shop keeper",
+      "firstName": "h",
+      "secondName": "j",
+      "password": "zV0yufZT",
+      "id": "76ce"
+    },
+    {
+      "email": "kariukimumbi475@gmail.com",
+      "userName": "thjkk kk",
+      "status": "active",
+      "role": "shop keeper",
+      "firstName": "mumbi",
+      "secondName": "kariuki",
+      "password": "9j7u2RvO",
+      "id": "0c08"
     }
   ],
   "products": [
@@ -105,7 +148,7 @@
       "name": "CUPS",
       "description": "Description for Product B",
       "quantity": 50,
-      "reorder_level": 10,
+      "reorder_level": "7",
       "price": 80
     },
     {
@@ -123,6 +166,22 @@
       "quantity": "460",
       "description": "hahahhaha",
       "reorder_level": "30"
+    },
+    {
+      "id": "bf63",
+      "name": "soda",
+      "price": 100,
+      "quantity": "200",
+      "description": "thth",
+      "reorder_level": "50"
+    },
+    {
+      "id": "d958",
+      "name": "g",
+      "price": 56,
+      "quantity": "6",
+      "description": "uii",
+      "reorder_level": "89"
     }
   ],
   "purchases": [
