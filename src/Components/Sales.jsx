@@ -40,7 +40,7 @@ data();
 
 
   return (
-    <Box p="5" shadow="md" borderWidth="1px"  width="100%" height="100%"onClick={handleSales} cursor= "pointer"  >
+    <Box p="5" shadow="md" pl='200px' borderWidth="1px"  width="100%" height="100%"onClick={handleSales} cursor= "pointer"  >
           
 
     <Stat>
