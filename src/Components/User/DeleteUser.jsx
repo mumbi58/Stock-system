@@ -1,9 +1,10 @@
-import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button,useToast,Box } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function DeleteUser() {
   const { id } = useParams();
+  const toast = useToast();
   const navigate = useNavigate();
   const [user, setUser] = useState({
     email: '',
@@ -30,7 +31,8 @@ export default function DeleteUser() {
 
     const updatedUser = {
       ...user,
-      status: 'disabled'
+      status: 'disabled',
+      disabled: true  
     };
 
     const response = await fetch(`http://localhost:8000/users/${id}`, {
@@ -43,6 +45,15 @@ export default function DeleteUser() {
 
     if (response.ok) {
       console.log('User status updated to deleted');
+      toast({
+        title: "User disabled successfully.",
+                // description: "The user information has been updated.",
+                status: "success",
+                
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+      })
       navigate('/users');
     } else {
       const result = await response.json();
@@ -51,6 +62,7 @@ export default function DeleteUser() {
   };
 
   return (
+    <Box pl='200px'>
     <form onSubmit={handleSubmit}>
       <FormControl isRequired>
         <FormLabel>First Name</FormLabel>
@@ -64,7 +76,7 @@ export default function DeleteUser() {
       <FormControl isRequired>
         <FormLabel>Second Name</FormLabel>
         <Input
-        disabled
+          disabled
           type="text"
           value={user.secondName}
           readOnly
@@ -73,7 +85,7 @@ export default function DeleteUser() {
       <FormControl isRequired>
         <FormLabel>User Name</FormLabel>
         <Input
-        disabled
+          disabled
           type="text"
           value={user.userName}
           readOnly
@@ -82,7 +94,7 @@ export default function DeleteUser() {
       <FormControl isRequired>
         <FormLabel>Role</FormLabel>
         <Input
-        disabled
+          disabled
           type="text"
           value={user.role}
           readOnly
@@ -91,7 +103,7 @@ export default function DeleteUser() {
       <FormControl isRequired>
         <FormLabel>Password</FormLabel>
         <Input
-        disabled
+          disabled
           type="password"
           value={user.password}
           readOnly
@@ -100,7 +112,7 @@ export default function DeleteUser() {
       <FormControl isRequired>
         <FormLabel>Email</FormLabel>
         <Input
-        disabled
+          disabled
           type="email"
           value={user.email}
           readOnly
@@ -108,5 +120,6 @@ export default function DeleteUser() {
       </FormControl>
       <Button type="submit" mt={4}>Delete User</Button>
     </form>
+    </Box>
   );
 }

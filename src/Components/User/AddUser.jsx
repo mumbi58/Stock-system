@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Button, Box } from "@chakra-ui/react";
 import { AddIcon } from '@chakra-ui/icons';
 
 export default function AddUser() {
@@ -69,6 +69,8 @@ export default function AddUser() {
   };
 
   return (
+    <Box pl='200px'>
+    <form onSubmit={handleAddUser}>
     <FormControl isRequired>
       <FormLabel>First Name</FormLabel>
       <Input type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -80,7 +82,8 @@ export default function AddUser() {
       <Input type='text' value={userName} onChange={(e) => setUserName(e.target.value)} />
 
       <FormLabel>Email</FormLabel>
-      <Input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+      <Input
+        type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
 
       {/* Status is set to 'inactive' by default */}
       <Input type='hidden' value={status} onChange={(e) => setStatus(e.target.value)} />
@@ -92,7 +95,7 @@ export default function AddUser() {
 
       {/* <Input type='password' value={generateRandomPassword()} readOnly /> */}
 
-      <Button onClick={handleAddUser} leftIcon={<AddIcon />} colorScheme='blue' size="sm" mt={4}>Add</Button>
+      <Button type="submit" leftIcon={<AddIcon />} colorScheme='blue' size="sm" mt={4}>Add</Button>
 
       {error && (
         <div style={{ color: 'red', marginTop: '1rem' }}>{error}</div>
@@ -102,5 +105,7 @@ export default function AddUser() {
         <div style={{ color: 'green', marginTop: '1rem' }}>User added successfully!</div>
       )}
     </FormControl>
+    </form>
+    </Box>
   );
 }

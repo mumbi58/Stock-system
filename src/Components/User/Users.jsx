@@ -23,75 +23,79 @@ export default function Users() {
     Users()
 
   }, [])
+ 
 
 
   return (
-    <Box p="5" shadow="md" width="100%" height="100%">
-      <TableContainer>
-        <ChakraLink as={ReactRouterLink} to="/user">
+    // <Box p="5" shadow="md" width="100%" height="100%">
+    <TableContainer pl='200px'>
+      <ChakraLink as={ReactRouterLink} to="/user">
 
-          <Button leftIcon={<AddIcon />} colorScheme='blue' size="sm" ml="900px">Add</Button>
-        </ChakraLink>
-        <Table variant="variant">
-          <Thead>
-            <Tr>
-              <Th>Name</Th>
-              <Th>Email</Th>
-              <Th>Role</Th>
-              <Th>Status</Th>
+        <Button leftIcon={<AddIcon />} colorScheme='blue' size="sm" ml="900px">Add</Button>
+      </ChakraLink>
+      <Table variant="variant">
+        <Thead >
+          <Tr >
+            <Th>Name</Th>
+            <Th>Email</Th>
+            <Th>Role</Th>
+            <Th>Status</Th>
+            <Th>Actions</Th>
 
 
-            </Tr>
-          </Thead>
-          <Tbody>
-            {User.map((user) => (
-              <Tr key={user.id}>
 
-                <Td>{user.userName}</Td>
-                <Td>{user.email}</Td>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {User.map((user) => (
+            <Tr key={user.id}>
 
-                <Td>{user.role}</Td>
-                <Box
+              <Td>{user.userName}</Td>
+              <Td>{user.email}</Td>
+              <Td>{user.role}</Td>
+              <Box
 
-                  bg={user.status === 'active' ? 'green.400' : 'red.400'}
-                  color="white"
-                  px={2}
+                bg={user.status === 'active' ? 'green.400' : 'red.400'}
+                color="white"
+                px={1}
 
-                  py={1}
-                  borderRadius="md"
-                  display="inline-block"
-                  textAlign="center"
-                  fontsize='10px'
-                  fontWeight="bold"
-                  m={2}
-                  width="60px" // Adjust width as needed
-                >
-                  {user.status}
-                </Box>
+                py={1.5}
+                borderRadius="md"
+                display="inline-block"
+                textAlign="center"
+                fontsize='10px'
+                fontWeight="bold"
+                m={2}
+                width="69px" // Adjust width as needed
+              >
+                {user.status}
+              </Box>
+              <Td>
 
-                <ButtonGroup gap="2">
+                <ButtonGroup gap="0.2">
                   <ChakraLink as={ReactRouterLink} to={`/user/${user.id}`} onClick={EditUser} >
-                    <Button colorScheme='blue' size="sm" leftIcon={<EditIcon />} >edit</Button></ChakraLink>
+                    <Button _hover={{ textDecorationLine: "solid" }} color='blue' bg='white' size="sm" leftIcon={<EditIcon />} ></Button></ChakraLink>
                   <ChakraLink as={ReactRouterLink} to={`/deleteuser/${user.id}`} onClick={DeleteUser}>
-                    <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button></ChakraLink>
+                    <Button color='red' bg='white' size="sm" _hover={{ textDecoration: 'underline' }} leftIcon={<DeleteIcon />}></Button></ChakraLink>
 
 
 
 
                 </ButtonGroup>
-              </Tr>
-            ))}
-          </Tbody>
+              </Td>
+            </Tr>
+          ))}
+        </Tbody>
 
 
 
 
 
-        </Table>
-      </TableContainer>
+      </Table>
+    </TableContainer>
 
 
 
-    </Box>
+    // </Box>
   )
 }

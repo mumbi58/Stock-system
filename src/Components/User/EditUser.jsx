@@ -1,9 +1,7 @@
-import { FormControl, FormLabel, Input, Button, Select, InputGroup, InputRightElement, IconButton } from '@chakra-ui/react';
-import { color } from 'chart.js/helpers';
+import { FormControl, FormLabel, Input, Button, Select, InputGroup, InputRightElement, IconButton, useToast, Box } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons'
-
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 const roles = ['admin', 'shop keeper', 'auditor'];
 const statusOptions = ['active', 'inactive'];
@@ -11,6 +9,7 @@ const statusOptions = ['active', 'inactive'];
 export default function EditUser() {
     const { id } = useParams();
     const navigate = useNavigate();
+    const toast = useToast();
     const [email, setEmail] = useState("");
     const [userName, setUserName] = useState("");
     const [status, setStatus] = useState("");
@@ -23,7 +22,6 @@ export default function EditUser() {
     const handlePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -70,32 +68,33 @@ export default function EditUser() {
             setFirstName('');
             setSecondName('');
             setPassword('');
-            console.log('User updated successfully');
+            toast({
+                title: "User updated successfully.",
+                // description: "The user information has been updated.",
+                status: "success",
+                
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+            });
             navigate('/users');
         } else {
             const result = await response.json();
             console.error('Failed to update user:', result);
+            toast({
+                title: "Failed to update user.",
+                description: result.message || "An error occurred while updating the user.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+            });
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            {/* <FormControl isRequired>
-                <FormLabel>First Name</FormLabel>
-                <Input
-                    type="text"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                />
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Second Name</FormLabel>
-                <Input
-                    type="text"
-                    value={secondName}
-                    onChange={(e) => setSecondName(e.target.value)}
-                />
-            </FormControl> */}
+        <Box pl='200px'>
+        <form onSubmit={handleSubmit} >
             <FormControl isRequired>
                 <FormLabel>User Name</FormLabel>
                 <Input
@@ -107,10 +106,8 @@ export default function EditUser() {
             <FormControl isRequired>
                 <FormLabel>Role</FormLabel>
                 <Select
-
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
-
                 >
                     {roles.map((role) => (
                         <option key={role} value={role}>{role}</option>
@@ -156,5 +153,6 @@ export default function EditUser() {
             </FormControl>
             <Button type="submit" mt={4}>Update User</Button>
         </form>
+        </Box>
     );
 }
