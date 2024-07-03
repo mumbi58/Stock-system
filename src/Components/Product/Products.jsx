@@ -39,7 +39,7 @@ export default function Products() {
   }, []);
 
   return (
-    <Box p="5" shadow="md" width="100%" height="100%">
+    <Box p="5" shadow="md" width="100%" height="100%" pl='200px'>
       <Stat>
         <Flex justify="space-between" align="center">
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>

@@ -1,4 +1,4 @@
-import { Container, Table, Thead, Tbody, Tr, Th, Td, TableContainer } from "@chakra-ui/react";
+import { Container, Table, Thead, Tbody, Tr, Th, Td, TableContainer,Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -31,7 +31,7 @@ export default function Product1({ productId }) {
   console.log("Hey Reggie");
 
   return (
-
+<Box pl='200px'>
     <TableContainer>
       <Table variant="simple">
         <Thead>
@@ -56,6 +56,7 @@ export default function Product1({ productId }) {
         </Tbody>
       </Table>
     </TableContainer>
+    </Box>
 
   );
 }

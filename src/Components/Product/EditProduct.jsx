@@ -1,9 +1,10 @@
-import { FormControl, FormLabel, Input, Button } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button,useToast,Box } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function EditProduct() {
     const { id } = useParams();
+    const toast = useToast();
     const navigate = useNavigate();
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
@@ -52,13 +53,30 @@ export default function EditProduct() {
             setReorderLevel('');
             console.log('Product updated successfully');
             navigate('/products');
+            toast({
+                title: "product update successful.",
+                // description: "The user information has been updated.",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+            })
         } else {
             const result = await response.json();
             console.error('Failed to update product:', result);
+            toast({
+                title: "Failed to update user.",
+                description: result.message || "An error occurred while updating the user.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+            })
         }
     };
 
     return (
+        <Box pl='200px'>
         <form onSubmit={handleSubmit}>
             <FormControl isRequired>
                 <FormLabel>Name</FormLabel>
@@ -102,5 +120,6 @@ export default function EditProduct() {
             </FormControl>
             <Button type="submit" mt={4}>Update Product</Button>
         </form>
+        </Box>
     );
 }
