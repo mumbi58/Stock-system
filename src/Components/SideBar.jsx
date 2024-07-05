@@ -9,8 +9,8 @@ function Sidebar({ onLogout }) {
     <Heading mb="5">Menu</Heading>
     <VStack spacing="4" align="stretch">
 
-    <ChakraLink as={ReactRouterLink} to="/Stock">
-        <Button variant='ghost'>Stock Management</Button>
+    <ChakraLink as={ReactRouterLink} to="/sell">
+        <Button variant='ghost'>Sell</Button>
         </ChakraLink>
 
         <ChakraLink as={ReactRouterLink} to='/sales'>

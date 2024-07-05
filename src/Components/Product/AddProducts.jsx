@@ -61,7 +61,7 @@ export default function AddProducts() {
   };
 
   return (
-    <FormControl isRequired>
+    <FormControl isRequired pl={200}>
       <FormLabel>Name</FormLabel>
       <Input type='text' value={productName} onChange={(e) => setProductName(e.target.value)} />
       <FormLabel>Price</FormLabel>

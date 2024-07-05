@@ -15,6 +15,8 @@ import Users from './Components/User/Users';
 import AddUser from './Components/User/AddUser';
 import EditUser from './Components/User/EditUser';
 import DeleteUser from './Components/User/DeleteUser';
+import SellProduct from './Components/sales/Sellproduct';
+import Cart from './Components/sales/cart';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -33,7 +35,7 @@ function App() {
         <Box flex="1" p="5">
             <Routes>
               <Route path="/sales" element={<Sales />} />
-              {/* <Route path="/stock" element={<Stock />} /> */}
+              <Route path="/sell" element={<SellProduct />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<Product1 />} />
               <Route path="/product/" element={<AddProducts />} />
@@ -43,6 +45,7 @@ function App() {
               <Route path="/user" element={<AddUser/>} />
               <Route path="/user/:id" element={<EditUser/>} />
               <Route path="/deleteuser/:id" element={<DeleteUser/>} />
+              <Route path="/cart" element={<Cart/>} />
 
 
             </Routes>

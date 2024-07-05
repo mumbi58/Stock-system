@@ -26,8 +26,7 @@
       "firstName": "Jane",
       "secondName": "Smith",
       "password": "userpass456",
-      "id": "2",
-      "disabled": true
+      "id": "2"
     },
     {
       "email": "mumbi@gmail.com",
