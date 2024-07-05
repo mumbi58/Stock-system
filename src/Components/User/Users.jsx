@@ -23,7 +23,7 @@ export default function Users() {
     Users()
 
   }, [])
- 
+
 
 
   return (
@@ -45,7 +45,7 @@ export default function Users() {
 
 
           </Tr>
-        </Thead>
+        </Thead >
         <Tbody>
           {User.map((user) => (
             <Tr key={user.id}>
