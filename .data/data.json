@@ -181,6 +181,22 @@
       "quantity": "6",
       "description": "uii",
       "reorder_level": "89"
+    },
+    {
+      "id": "2a64",
+      "name": "NDUMA",
+      "price": 200,
+      "quantity": "207",
+      "description": "hshsjsjs",
+      "reorder_level": "20"
+    },
+    {
+      "id": "756c",
+      "name": "oranges",
+      "price": 10,
+      "quantity": "450",
+      "description": "shhshs",
+      "reorder_level": "20"
     }
   ],
   "purchases": [

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext, createContext } from 'react';
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, IconButton, TableContainer, ButtonGroup, useToast } from '@chakra-ui/react';
 import { AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
@@ -6,17 +6,27 @@ import { MdAddShoppingCart } from "react-icons/md";
 import Cart from './cart';
 import { useNavigate } from 'react-router-dom';
 
+export const CartContext = createContext()
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  return (
+    <CartContext.Provider value={{ cartItems, setCartItems }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
 export default function SellProduct() {
   const [products, setProducts] = useState([]);
-  const [cartItems, setCartItems] = useState([{
-    "name": "warufaga",
-    "id": 2,
-    "quantity": 10,
-    "price": 200
-  }]);
+  const [totalItems, setTotalItems] = useState(0)
+  // const [cartItems, setCartItems] = useState([]);
+  const { cartItems, setCartItems } = useContext(CartContext)
   const toast = useToast();
   const [showProduct, setShowProduct] = useState(false);
   const navigate = useNavigate();
+
+
 
   const productVisibility = () => {
     setShowProduct(!showProduct);
@@ -27,17 +37,35 @@ export default function SellProduct() {
   const navigateToCart = () => {
     navigate('/cart');
   };
+
+  const computeCartItems = (prevItems, product) => {
+    const existingItem = prevItems.find(item => item.id === product.id);
+    if (existingItem) {
+      return prevItems.map(item =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1, price: product.price * (item.quantity + 1) } : item
+      );
+    } else {
+      return [...prevItems, { ...product, quantity: 1 }];
+    }
+  }
+
+  const calculateTotalQuantity = (items) => {
+    return items.reduce((total, item) => total + item.quantity, 0);
+
+  };
+  const subTotal = calculateTotalQuantity(cartItems)
+
   const handleAddToCart = (product) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(item => item.id === product.id);
-      if (existingItem) {
-        return prevItems.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      } else {
-        return [...prevItems, { ...product, quantity: 1 }];
-      }
-    });
+
+    setCartItems((prevItems) =>
+      computeCartItems(prevItems, product)
+
+    );
+
+
+    console.log(cartItems);
+
+
     toast({
       title: `${product.name} added to cart.`,
       status: "success",
@@ -77,8 +105,10 @@ export default function SellProduct() {
               size="sm"
               py={4}
               leftIcon={<MdAddShoppingCart size={30} />}
+
               onClick={navigateToCart}
-            >
+
+            >{subTotal}
             </Button>
           </ButtonGroup>
         </Flex>
@@ -124,7 +154,7 @@ export default function SellProduct() {
           </TableContainer>
         </StatNumber>
       </Stat>
-            <Cart cartItems={cartItems} />
+      <Cart cartItems={cartItems} />
 
     </Box>
   );

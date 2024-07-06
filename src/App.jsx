@@ -17,6 +17,7 @@ import EditUser from './Components/User/EditUser';
 import DeleteUser from './Components/User/DeleteUser';
 import SellProduct from './Components/sales/Sellproduct';
 import Cart from './Components/sales/cart';
+import { CartProvider } from './Components/sales/Sellproduct';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -29,6 +30,7 @@ function App() {
   return (
     
     <ChakraProvider>
+      <CartProvider>
       
       <Flex height="100vh">
         <Sidebar onLogout={handleLogout} />
@@ -52,6 +54,7 @@ function App() {
           </Box>
         {/* <MainContent /> */}
       </Flex>
+      </CartProvider>
     </ChakraProvider>
    
   );
