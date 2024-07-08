@@ -15,7 +15,7 @@ import Users from './Components/User/Users';
 import AddUser from './Components/User/AddUser';
 import EditUser from './Components/User/EditUser';
 import DeleteUser from './Components/User/DeleteUser';
-import SellProduct from './Components/sales/Sellproduct';
+import SellProduct, { SalesProvider } from './Components/sales/Sellproduct';
 import Cart from './Components/sales/cart';
 import { CartProvider } from './Components/sales/Sellproduct';
 
@@ -31,6 +31,7 @@ function App() {
     
     <ChakraProvider>
       <CartProvider>
+        <SalesProvider>
       
       <Flex height="100vh">
         <Sidebar onLogout={handleLogout} />
@@ -54,7 +55,9 @@ function App() {
           </Box>
         {/* <MainContent /> */}
       </Flex>
+      </SalesProvider>
       </CartProvider>
+
     </ChakraProvider>
    
   );

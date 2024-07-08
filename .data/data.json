@@ -197,6 +197,14 @@
       "quantity": "450",
       "description": "shhshs",
       "reorder_level": "20"
+    },
+    {
+      "id": "ec2a",
+      "name": "WATER",
+      "price": 20,
+      "quantity": "19",
+      "description": "HDJD",
+      "reorder_level": "6"
     }
   ],
   "purchases": [
@@ -217,8 +225,74 @@
   ],
   "sales": [
     {
-      "id": "1",
-      "product": 300
+      "0": {
+        "name": "CUPS",
+        "price": 80,
+        "quantity": 1
+      },
+      "1": {
+        "name": "laptop",
+        "price": 3000,
+        "quantity": 1
+      },
+      "2": {
+        "name": "water",
+        "price": 45,
+        "quantity": 1
+      },
+      "3": {
+        "name": "soda",
+        "price": 100,
+        "quantity": 1
+      },
+      "4": {
+        "name": "g",
+        "price": 56,
+        "quantity": 1
+      },
+      "id": "36b8"
+    },
+    {
+      "0": {
+        "name": "laptop",
+        "price": 3000,
+        "quantity": 4
+      },
+      "id": "a328"
+    },
+    {
+      "0": {
+        "name": "soda",
+        "price": 100,
+        "quantity": 23
+      },
+      "id": "2492"
+    },
+    {
+      "0": {
+        "name": "laptop",
+        "price": 3000,
+        "quantity": 3
+      },
+      "id": "0a12"
+    },
+    {
+      "0": {
+        "name": "laptop",
+        "price": 3000,
+        "quantity": 10
+      },
+      "1": {
+        "name": "water",
+        "price": 45,
+        "quantity": 1
+      },
+      "2": {
+        "name": "CUPS",
+        "price": 80,
+        "quantity": 1
+      },
+      "id": "b1a4"
     }
   ],
   "notifications": [

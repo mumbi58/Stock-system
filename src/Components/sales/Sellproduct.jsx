@@ -10,11 +10,26 @@ export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
+
   return (
     <CartContext.Provider value={{ cartItems, setCartItems }}>
       {children}
     </CartContext.Provider>
   );
+};
+export const SalesContext = createContext();
+
+export const SalesProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  return (
+    <SalesContext.Provider value={{ cartItems, setCartItems }}>
+      {children}
+    </SalesContext.Provider>
+  );
+};
+export const calculateTotalPrice = (items) => {
+  return items.reduce((total, item) => total + item.price, 0);
 };
 
 export default function SellProduct() {
@@ -53,7 +68,9 @@ export default function SellProduct() {
     return items.reduce((total, item) => total + item.quantity, 0);
 
   };
+
   const subTotal = calculateTotalQuantity(cartItems)
+
 
   const handleAddToCart = (product) => {
 
@@ -69,7 +86,7 @@ export default function SellProduct() {
     toast({
       title: `${product.name} added to cart.`,
       status: "success",
-      duration: 2000,
+      duration: 1000,
       position: "top-right",
       isClosable: true,
     });
@@ -154,7 +171,7 @@ export default function SellProduct() {
           </TableContainer>
         </StatNumber>
       </Stat>
-      <Cart cartItems={cartItems} />
+      {/* <Cart cartItems={cartItems} /> */}
 
     </Box>
   );
