@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { Box, Text, List, ListItem, Divider, Button, IconButton } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from './Sellproduct';
-import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { AddIcon, MinusIcon, CloseIcon } from "@chakra-ui/icons";
 
 const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  // Function to handle quantity changes
+  //  handle quantity changes
   const handleQuantityChange = (item, operation) => {
     const updatedItems = cartItems.map(cartItem => {
       if (cartItem.id === item.id) {
@@ -21,7 +21,25 @@ const Cart = () => {
     setCartItems(updatedItems);
   };
 
-  const totalPrice = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+  //  removing an item
+  const handleRemoveItem = (item) => {
+    const updatedItems = cartItems.filter(cartItem => cartItem.id !== item.id);
+    setCartItems(updatedItems);
+  };
+
+  const totalPrice = cartItems.reduce((total, item) => {
+    if (typeof item.price === 'string') {
+      const priceString = item.price;
+      const cleanedPriceString = priceString.replace(/[^\d.-]/g, '');
+      const price = parseFloat(cleanedPriceString);
+
+      return total + (price * item.quantity);
+    } else {
+
+      console.error(`Invalid price format for item ${item.name}`);
+      return total;
+    }
+  }, 0);
 
   const clearCartAndAddToSales = async () => {
     if (cartItems.length === 0) {
@@ -51,7 +69,6 @@ const Cart = () => {
       const data = await response.json();
       console.log("Sales data successfully sent:", data);
 
-      // Clear cart items
       setCartItems([]);
       navigate('/sales');
     } catch (error) {
@@ -64,30 +81,40 @@ const Cart = () => {
       <Text fontSize="xl" fontWeight="bold" mb="4">Shopping Cart</Text>
       <List spacing={3}>
         {cartItems.map((item) => (
-          <ListItem key={item.id}>
-            <Text pl={2}>
-              {item.name} - Quantity: {item.quantity}
-              <IconButton
-                aria-label="Increase Quantity"
-                icon={<AddIcon />}
-                onClick={() => handleQuantityChange(item, '+')}
-                size="sm"
-                mr={2}
-              />
-              <IconButton
-                aria-label="Decrease Quantity"
-                icon={<MinusIcon />}
-                onClick={() => handleQuantityChange(item, '-')}
-                size="sm"
-              />
-            </Text>
-            <Text>Price: ${item.price}</Text>
-            <Divider mt="2" />
+          <ListItem key={item.id} display="flex" alignItems="center" justifyContent="space-between">
+            <Box>
+              <Text pl={2}>
+                {item.name} - Quantity: {item.quantity}
+                <IconButton
+                  aria-label="Increase Quantity"
+                  icon={<AddIcon />}
+                  onClick={() => handleQuantityChange(item, '+')}
+                  size="sm"
+                  ml={2}
+                />
+                <IconButton
+                  aria-label="Decrease Quantity"
+                  icon={<MinusIcon />}
+                  onClick={() => handleQuantityChange(item, '-')}
+                  size="sm"
+                  ml={2}
+                />
+              </Text>
+              <Text>Price: {item.price}</Text>
+            </Box>
+            <IconButton
+              aria-label="Remove Item"
+              colorScheme='red'
+              icon={<CloseIcon />}
+              onClick={() => handleRemoveItem(item)}
+              size="sm"
+            />
           </ListItem>
         ))}
       </List>
+      <Divider mt="4" />
       <Text fontSize="xl" fontWeight="bold" mt="4">Total Price: ${totalPrice.toFixed(2)}</Text>
-      <Button onClick={clearCartAndAddToSales}>Checkout</Button>
+      <Button onClick={clearCartAndAddToSales} mt="4">Checkout</Button>
     </Box>
   );
 };

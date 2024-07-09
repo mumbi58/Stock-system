@@ -23,12 +23,15 @@ export default function AddProducts() {
 
       const newProduct = {
         name: productName,
-        price: parseFloat(productPrice),
+        price: parseFloat(productPrice).toLocaleString('en-KE', {
+          style: 'currency',
+          currency: 'KES'
+        }),
         quantity,
         description,
         reorder_level: reorderLevel
-
       };
+
 
       const response = await fetch("http://localhost:8000/products", {
         method: "POST",
@@ -47,8 +50,8 @@ export default function AddProducts() {
       setQuantity('');
       setDescription('');
       setReorderLevel('');
-      
-      
+
+
 
 
       setSuccess(true);
@@ -72,7 +75,7 @@ export default function AddProducts() {
       <Input type='number' value={quantity} onChange={(e) => setQuantity(e.target.value)} />
       <FormLabel>Re-Order Level</FormLabel>
       <Input type='number' value={reorderLevel} onChange={(e) => setReorderLevel(e.target.value)} />
-     
+
       <Button onClick={handleAddProduct} leftIcon={<AddIcon />} colorScheme='blue' size="sm" mt={4}>Add</Button>
 
 

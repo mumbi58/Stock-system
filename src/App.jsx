@@ -18,6 +18,7 @@ import DeleteUser from './Components/User/DeleteUser';
 import SellProduct, { SalesProvider } from './Components/sales/Sellproduct';
 import Cart from './Components/sales/cart';
 import { CartProvider } from './Components/sales/Sellproduct';
+import Totalsales from './Components/sales/Totalsales';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -37,7 +38,9 @@ function App() {
         <Sidebar onLogout={handleLogout} />
         <Box flex="1" p="5">
             <Routes>
-              <Route path="/sales" element={<Sales />} />
+              <Route path="/sale" element={<Sales />} />
+              <Route path="/sales" element={<Totalsales />} />
+
               <Route path="/sell" element={<SellProduct />} />
               <Route path="/products" element={<Products />} />
               <Route path="/product/:id" element={<Product1 />} />

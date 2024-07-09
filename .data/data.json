@@ -19,192 +19,68 @@
   ],
   "users": [
     {
-      "email": "jane.smith@example.com",
-      "userName": "John doe",
-      "status": "disabled",
-      "role": "auditor",
-      "firstName": "Jane",
-      "secondName": "Smith",
-      "password": "userpass456",
-      "id": "2"
-    },
-    {
-      "email": "mumbi@gmail.com",
-      "userName": "h",
-      "status": "disabled",
-      "role": "Admin",
-      "firstName": "Mumbi",
-      "secondName": "Kariuki",
-      "password": "123456",
-      "id": "13d0",
-      "disabled": true
-    },
-    {
-      "email": "jmwaijk@gmail.com",
-      "userName": "jmwai",
-      "status": "disabled",
-      "role": "admin",
-      "firstName": "Mwai",
-      "secondName": "John",
-      "password": "LAhNXd8F",
-      "id": "030d"
-    },
-    {
-      "email": "rmumbi@gmail",
-      "userName": "rmumbi",
-      "status": "disabled",
-      "role": "admin",
-      "firstName": "Regina",
-      "secondName": "mumbi",
-      "password": "aeKIZSvg",
-      "id": "d0ee",
-      "disabled": true
-    },
-    {
-      "email": "tehss@gmail.com",
-      "userName": "babba",
+      "email": "kariukimumbi475@gmail.com",
+      "userName": "kmumbi",
       "status": "active",
       "role": "shop keeper",
-      "firstName": "baba",
-      "secondName": "bab",
-      "password": "i3kdiatZ",
-      "id": "0607"
-    },
-    {
-      "email": "sakinyi@gmail.com",
-      "userName": "sakinyi",
-      "status": "active",
-      "role": "admin",
-      "firstName": "schola",
-      "secondName": "akinyi",
-      "password": "90gbcHLT",
-      "id": "a0fe"
-    },
-    {
-      "email": "akinyi@gmail.com",
-      "userName": "sakinyi",
-      "status": "active",
-      "role": "auditor",
-      "firstName": "Akinyi",
-      "secondName": "schola",
-      "password": "rzdS9w75",
-      "id": "b86e"
-    },
-    {
-      "id": "5f32",
-      "firstName": "Lucy",
-      "secondName": "Wambui",
-      "userName": "lwambui",
-      "email": "wambui@gmail.com",
-      "status": "inactive",
-      "role": "shop keeper",
-      "password": "rdRKl5oq"
-    },
-    {
-      "id": "d7be",
-      "firstName": "t",
-      "secondName": "y",
-      "userName": "u",
-      "email": "hj",
-      "status": "inactive",
-      "role": "shop keeper",
-      "password": "rxoYhOal"
-    },
-    {
-      "id": "6ebc",
-      "firstName": "h",
-      "secondName": "j",
-      "userName": "j",
-      "email": "j",
-      "status": "inactive",
-      "role": "shop keeper",
-      "password": "yFUgIqJb"
-    },
-    {
-      "email": "h@gmail",
-      "userName": "j",
-      "status": "active",
-      "role": "shop keeper",
-      "firstName": "h",
-      "secondName": "j",
-      "password": "zV0yufZT",
-      "id": "76ce"
+      "firstName": "Kariuki ",
+      "secondName": "Mumbi",
+      "password": "6DFGG8gR",
+      "id": "88f7"
     },
     {
       "email": "kariukimumbi475@gmail.com",
-      "userName": "thjkk kk",
+      "userName": "lwambui",
       "status": "active",
       "role": "shop keeper",
-      "firstName": "mumbi",
-      "secondName": "kariuki",
-      "password": "9j7u2RvO",
-      "id": "0c08"
+      "firstName": "Wambui",
+      "secondName": "Kariuki",
+      "password": "S2Wxrf4R",
+      "id": "d832"
+    },
+    {
+      "id": "2416",
+      "firstName": "John",
+      "secondName": "doe",
+      "userName": "JDOE",
+      "email": "kariukimumbi475@gmail.com",
+      "status": "inactive",
+      "role": "shop keeper",
+      "password": "Hs4x03oX"
     }
   ],
   "products": [
     {
-      "id": "10",
-      "name": "CUPS",
-      "description": "Description for Product B",
-      "quantity": 50,
-      "reorder_level": "7",
-      "price": 80
+      "id": "17a5",
+      "name": "BEANS",
+      "price": "Ksh 300.00",
+      "quantity": "30",
+      "description": "h",
+      "reorder_level": "8"
     },
     {
-      "id": "38b2",
-      "name": "laptop",
-      "price": 3000,
-      "quantity": "50",
-      "description": "hp pro book",
-      "reorder_level": "20"
+      "id": "6e4b",
+      "name": "maize",
+      "price": "Ksh 500.00",
+      "quantity": "70",
+      "description": "kj",
+      "reorder_level": "10"
     },
     {
-      "id": "8ee3",
-      "name": "water",
-      "price": 45,
-      "quantity": "460",
-      "description": "hahahhaha",
-      "reorder_level": "30"
-    },
-    {
-      "id": "bf63",
+      "id": "81d7",
       "name": "soda",
-      "price": 100,
-      "quantity": "200",
-      "description": "thth",
-      "reorder_level": "50"
+      "price": "Ksh 100.00",
+      "quantity": "100",
+      "description": "jh",
+      "reorder_level": "70"
     },
     {
-      "id": "d958",
-      "name": "g",
-      "price": 56,
-      "quantity": "6",
-      "description": "uii",
-      "reorder_level": "89"
-    },
-    {
-      "id": "2a64",
-      "name": "NDUMA",
-      "price": 200,
-      "quantity": "207",
-      "description": "hshsjsjs",
-      "reorder_level": "20"
-    },
-    {
-      "id": "756c",
-      "name": "oranges",
-      "price": 10,
-      "quantity": "450",
-      "description": "shhshs",
-      "reorder_level": "20"
-    },
-    {
-      "id": "ec2a",
-      "name": "WATER",
-      "price": 20,
-      "quantity": "19",
-      "description": "HDJD",
-      "reorder_level": "6"
+      "id": "a4df",
+      "name": "Yellow bean",
+      "price": "Ksh 1,000.00",
+      "quantity": "70",
+      "description": "hjj",
+      "reorder_level": "7"
     }
   ],
   "purchases": [
@@ -226,73 +102,39 @@
   "sales": [
     {
       "0": {
-        "name": "CUPS",
-        "price": 80,
-        "quantity": 1
+        "name": "Yellow bean",
+        "price": "Ksh 1,000.00",
+        "quantity": 5
       },
       "1": {
-        "name": "laptop",
-        "price": 3000,
+        "name": "soda",
+        "price": "Ksh 100.00",
         "quantity": 1
       },
       "2": {
-        "name": "water",
-        "price": 45,
+        "name": "maize",
+        "price": "Ksh 500.00",
         "quantity": 1
       },
       "3": {
-        "name": "soda",
-        "price": 100,
+        "name": "BEANS",
+        "price": "Ksh 300.00",
         "quantity": 1
       },
-      "4": {
-        "name": "g",
-        "price": 56,
+      "id": "5a2c"
+    },
+    {
+      "0": {
+        "name": "Yellow bean",
+        "price": "Ksh 1,000.00",
         "quantity": 1
-      },
-      "id": "36b8"
-    },
-    {
-      "0": {
-        "name": "laptop",
-        "price": 3000,
-        "quantity": 4
-      },
-      "id": "a328"
-    },
-    {
-      "0": {
-        "name": "soda",
-        "price": 100,
-        "quantity": 23
-      },
-      "id": "2492"
-    },
-    {
-      "0": {
-        "name": "laptop",
-        "price": 3000,
-        "quantity": 3
-      },
-      "id": "0a12"
-    },
-    {
-      "0": {
-        "name": "laptop",
-        "price": 3000,
-        "quantity": 10
       },
       "1": {
-        "name": "water",
-        "price": 45,
-        "quantity": 1
+        "name": "maize",
+        "price": "Ksh 500.00",
+        "quantity": 2
       },
-      "2": {
-        "name": "CUPS",
-        "price": 80,
-        "quantity": 1
-      },
-      "id": "b1a4"
+      "id": "bb68"
     }
   ],
   "notifications": [
