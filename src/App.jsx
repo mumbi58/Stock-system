@@ -19,6 +19,7 @@ import SellProduct, { SalesProvider } from './Components/sales/Sellproduct';
 import Cart from './Components/sales/cart';
 import { CartProvider } from './Components/sales/Sellproduct';
 import Totalsales from './Components/sales/Totalsales';
+import CartTotal from './Components/sales/carttotal';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -40,6 +41,7 @@ function App() {
             <Routes>
               <Route path="/sale" element={<Sales />} />
               <Route path="/sales" element={<Totalsales />} />
+              <Route path="/cartT" element={<CartTotal />} />
 
               <Route path="/sell" element={<SellProduct />} />
               <Route path="/products" element={<Products />} />

@@ -7,7 +7,7 @@ const TotalSales = () => {
     const navigate = useNavigate()
 
     const handleSalesClick = () => {
-        navigate('/sale')
+        navigate('/cartT')
 
         console.log("card clicked");
     }

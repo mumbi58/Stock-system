@@ -81,10 +81,10 @@ const Sales = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      <Stat>
+      {/* <Stat>
         <StatLabel>Total </StatLabel>
         <StatNumber>{totalSales}</StatNumber>
-      </Stat>
+      </Stat> */}
     </Box>
   );
 };
