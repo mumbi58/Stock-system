@@ -1,6 +1,6 @@
 import React from "react";
 import { Stat, StatLabel, StatNumber, Card, Box, SimpleGrid, Heading,CardBody,Text } from "@chakra-ui/react";
-import useFetchSalesData from "./fetchsales";
+import useFetchSalesData from "../Hooks/fetchsales";
 import { useNavigate } from "react-router-dom";
 
 const TotalSales = () => {
@@ -41,7 +41,7 @@ const TotalSales = () => {
 
     return (
       
-        <Card   pl={200} marginLeft={200} borderWidth="1px" borderRadius="md" shadow="md" cursor="pointer" onClick={handleSalesClick}>
+        <Card   bg="blue.100" p={5} borderRadius="md" boxShadow="md" cursor="pointer" onClick={handleSalesClick}>
         <CardBody>
           <Text>Total sales Today</Text>
           <Text>{totalSales}</Text>

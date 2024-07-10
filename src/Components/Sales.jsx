@@ -2,7 +2,8 @@
 import React from "react";
 import { Box, Stat, StatLabel, StatNumber, TableContainer, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import useFetchSalesData from "./sales/fetchsales";
+
+import useFetchSalesData from "./Hooks/fetchsales";
 
 const Sales = () => {
   const salesData = useFetchSalesData();

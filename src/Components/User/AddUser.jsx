@@ -75,7 +75,7 @@ export default function AddUser() {
       <FormLabel>First Name</FormLabel>
       <Input type='text' value={firstName} onChange={(e) => setFirstName(e.target.value)} />
 
-      <FormLabel>Second Name</FormLabel>
+      <FormLabel>Last Name</FormLabel>
       <Input type='text' value={secondName} onChange={(e) => setSecondName(e.target.value)} />
 
       <FormLabel>User Name</FormLabel>

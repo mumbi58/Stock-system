@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
-import useFetchSalesData from './fetchsales';
+
+import useFetchSalesData from '../Hooks/fetchsales';
 
 const CartTotal = () => {
     const sales = useFetchSalesData();
