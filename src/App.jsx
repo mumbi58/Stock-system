@@ -20,6 +20,7 @@ import Cart from './Components/sales/cart';
 import { CartProvider } from './Components/sales/Sellproduct';
 import Totalsales from './Components/sales/Totalsales';
 import CartTotal from './Components/sales/carttotal';
+import DashboardCards from './Components/DashboardCards';
 
 function App() {
   const [userRole, setUserRole] = useState('admin'); // Set this based on your authentication logic
@@ -54,6 +55,7 @@ function App() {
               <Route path="/user/:id" element={<EditUser/>} />
               <Route path="/deleteuser/:id" element={<DeleteUser/>} />
               <Route path="/cart" element={<Cart/>} />
+              <Route path="/dashboard" element={<DashboardCards/>} />
 
 
             </Routes>

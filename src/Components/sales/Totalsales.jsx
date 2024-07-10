@@ -41,7 +41,7 @@ const TotalSales = () => {
 
     return (
       
-        <Card  pl={200} marginLeft={200}  borderWidth="1px" borderRadius="md" shadow="md" cursor="pointer" onClick={handleSalesClick}>
+        <Card   pl={200} marginLeft={200} borderWidth="1px" borderRadius="md" shadow="md" cursor="pointer" onClick={handleSalesClick}>
         <CardBody>
           <Text>Total sales Today</Text>
           <Text>{totalSales}</Text>
