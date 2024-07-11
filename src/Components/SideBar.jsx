@@ -25,6 +25,11 @@ function Sidebar({ onLogout }) {
         <ChakraLink as={ReactRouterLink} to="/products">
             <Button>Products</Button>
         </ChakraLink>
+
+
+        <ChakraLink as={ReactRouterLink} to="/category">
+            <Button>Category</Button>
+        </ChakraLink>
         
 
         <ChakraLink as={ReactRouterLink} to="/logout">

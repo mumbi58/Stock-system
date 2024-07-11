@@ -70,7 +70,7 @@ const Cart = () => {
       console.log("Sales data successfully sent:", data);
 
       setCartItems([]);
-      navigate('/sales');
+      navigate('/dashboard  ');
     } catch (error) {
       console.error("Error adding sales:", error);
     }

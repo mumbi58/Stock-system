@@ -17,7 +17,5 @@ export default function Fetchuser() {
       }, [])
       return(User)
 
-  return (
-   <Box></Box>
-  )
+  
 }

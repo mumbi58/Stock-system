@@ -17,7 +17,7 @@ export default function UsersTotal() {
 
     }
     return (
-        <Box bg="yellow.100" p={8} borderRadius="md" boxShadow="md" cursor="pointer" onClick={handleuser} >
+        <Box bg="yellow.100" p={10} borderRadius="md" boxShadow="md" cursor="pointer" onClick={handleuser} >
 
             
                 <Icon as={FaUser} boxSize={4} /> 

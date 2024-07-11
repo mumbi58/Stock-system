@@ -1,20 +1,52 @@
 {
-  "roles": [
+  "category": [
     {
-      "id": "1",
-      "name": "Super Admin"
+      "category_id": 1,
+      "category_name": "Electronics",
+      "products": [
+        {
+          "product_id": 101,
+          "product_name": "Smartphone",
+          "price": 699.99
+        },
+        {
+          "product_id": 102,
+          "product_name": "Laptop",
+          "price": 999.99
+        }
+      ]
     },
     {
-      "id": "2",
-      "name": "Admin"
+      "category_id": 2,
+      "category_name": "Home Appliances",
+      "products": [
+        {
+          "product_id": 201,
+          "product_name": "Refrigerator",
+          "price": 499.99
+        },
+        {
+          "product_id": 202,
+          "product_name": "Washing Machine",
+          "price": 299.99
+        }
+      ]
     },
     {
-      "id": "3",
-      "name": "Shop Attendant"
-    },
-    {
-      "id": "4",
-      "name": "Auditor"
+      "category_id": 3,
+      "category_name": "Books",
+      "products": [
+        {
+          "product_id": 301,
+          "product_name": "Fiction",
+          "price": 19.99
+        },
+        {
+          "product_id": 302,
+          "product_name": "Non-Fiction",
+          "price": 29.99
+        }
+      ]
     }
   ],
   "users": [
@@ -67,17 +99,21 @@
       "status": "inactive",
       "role": "shop keeper",
       "password": "LCsAnJbY"
+    },
+    {
+      "email": "kariukimumbi475@gmail.com",
+      "userName": "muh",
+      "status": "disabled",
+      "role": "auditor",
+      "firstName": "Muhoro",
+      "secondName": "Nyaruai",
+      "password": "5w3CcW7R",
+      "id": "a7f6",
+      "disabled": true
     }
   ],
   "products": [
-    {
-      "id": "17a5",
-      "name": "BEANS",
-      "price": "Ksh 300.00",
-      "quantity": "30",
-      "description": "h",
-      "reorder_level": "8"
-    },
+    
     {
       "id": "6e4b",
       "name": "maize",
@@ -101,23 +137,8 @@
       "quantity": "70",
       "description": "hjj",
       "reorder_level": "7"
-    },
-    {
-      "id": "d9ba",
-      "name": "Lentils",
-      "price": "Ksh 700.00",
-      "quantity": "6789",
-      "description": "gjj",
-      "reorder_level": "90"
-    },
-    {
-      "id": "076a",
-      "name": "Green Peas",
-      "price": "Ksh 300.00",
-      "quantity": "400",
-      "description": "ghh",
-      "reorder_level": "10"
     }
+   
   ],
   "purchases": [
     {
@@ -282,6 +303,55 @@
         "quantity": 1
       },
       "id": "982d"
+    },
+    {
+      "0": {
+        "name": "Green Peas",
+        "price": "Ksh 300.00",
+        "quantity": 3
+      },
+      "1": {
+        "name": "Lentils",
+        "price": "Ksh 700.00",
+        "quantity": 1
+      },
+      "2": {
+        "name": "Yellow bean",
+        "price": "Ksh 1,000.00",
+        "quantity": 1
+      },
+      "id": "be97"
+    },
+    {
+      "0": {
+        "name": "maize",
+        "price": "Ksh 500.00",
+        "quantity": 1
+      },
+      "1": {
+        "name": "soda",
+        "price": "Ksh 100.00",
+        "quantity": 1
+      },
+      "id": "2e8e"
+    },
+    {
+      "0": {
+        "name": "BEANS",
+        "price": "Ksh 300.00",
+        "quantity": 1
+      },
+      "1": {
+        "name": "maize",
+        "price": "Ksh 500.00",
+        "quantity": 1
+      },
+      "2": {
+        "name": "soda",
+        "price": "Ksh 100.00",
+        "quantity": 1
+      },
+      "id": "e24c"
     }
   ],
   "notifications": [
