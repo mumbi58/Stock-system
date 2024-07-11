@@ -22,6 +22,9 @@ import Totalsales from './Components/sales/Totalsales';
 import CartTotal from './Components/sales/carttotal';
 import DashboardCards from './Components/DashboardCards';
 import Category from './Components/Category/Category';
+import EditCategory from './Components/Category/Editcategory';
+import DeleteCategory from './Components/Category/DeleteCategory';
+import CategoryDetails from './Components/Category/Category1';
 
 
 function App() {
@@ -59,6 +62,9 @@ function App() {
               <Route path="/cart" element={<Cart/>} />
               <Route path="/dashboard" element={<DashboardCards/>} />
               <Route path="/category" element={<Category/>} />
+              <Route path="/category/:category_id" element={<CategoryDetails/>} />
+              <Route path="/edit-category/:id" element={<EditCategory/>} />
+              <Route path="/delete-category/:id" element={<DeleteCategory/>} />
 
 
             </Routes>
