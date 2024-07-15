@@ -14,7 +14,8 @@
           "product_name": "Laptop",
           "price": 999.99
         }
-      ]
+      ],
+      "id": "0946"
     },
     {
       "category_id": 2,
@@ -30,7 +31,8 @@
           "product_name": "Washing Machine",
           "price": 299.99
         }
-      ]
+      ],
+      "id": "4351"
     },
     {
       "category_id": 3,
@@ -46,7 +48,8 @@
           "product_name": "Non-Fiction",
           "price": 29.99
         }
-      ]
+      ],
+      "id": "a72a"
     },
     {
       "category_id": 4,
@@ -76,11 +79,10 @@
           "description": "hjj",
           "reorder_level": "7"
         }
-      ]
+      ],
+      "id": "da60"
     }
   ],
-
-
   "users": [
     {
       "email": "kariukimumbi475@gmail.com",
@@ -145,32 +147,158 @@
     }
   ],
   "products": [
-    
-    {
-      "id": "6e4b",
-      "name": "maize",
-      "price": "Ksh 500.00",
-      "quantity": "70",
-      "description": "kj",
-      "reorder_level": "10"
-    },
     {
       "id": "81d7",
-      "name": "soda",
-      "price": "Ksh 100.00",
+      "name": "Soda",
+      "price": "Ksh 100.00",
       "quantity": "100",
-      "description": "jh",
+      "description": "Refreshing carbonated drink.",
       "reorder_level": "70"
     },
     {
-      "id": "a4df",
-      "name": "Yellow bean",
-      "price": "Ksh 1,000.00",
-      "quantity": "70",
-      "description": "hjj",
-      "reorder_level": "7"
+      "id": "a3b4",
+      "name": "Rice",
+      "price": "Ksh 2,500.00",
+      "quantity": "50",
+      "description": "High-quality long-grain rice.",
+      "reorder_level": "20"
+    },
+    {
+      "id": "b2e3",
+      "name": "Sugar",
+      "price": "Ksh 150.00",
+      "quantity": "200",
+      "description": "Granulated white sugar.",
+      "reorder_level": "50"
+    },
+    {
+      "id": "c1d2",
+      "name": "Flour",
+      "price": "Ksh 120.00",
+      "quantity": "150",
+      "description": "All-purpose wheat flour.",
+      "reorder_level": "30"
+    },
+    {
+      "id": "d3f5",
+      "name": "Cooking Oil",
+      "price": "Ksh 300.00",
+      "quantity": "80",
+      "description": "Vegetable cooking oil.",
+      "reorder_level": "40"
+    },
+    {
+      "id": "e4g6",
+      "name": "Salt",
+      "price": "Ksh 50.00",
+      "quantity": "300",
+      "description": "Refined table salt.",
+      "reorder_level": "100"
+    },
+    {
+      "id": "f5h7",
+      "name": "Tomatoes",
+      "price": "Ksh 200.00",
+      "quantity": "60",
+      "description": "Fresh ripe tomatoes.",
+      "reorder_level": "25"
+    },
+    {
+      "id": "g6i8",
+      "name": "Onions",
+      "price": "Ksh 120.00",
+      "quantity": "100",
+      "description": "Fresh onions.",
+      "reorder_level": "40"
+    },
+    {
+      "id": "h7j9",
+      "name": "Potatoes",
+      "price": "Ksh 180.00",
+      "quantity": "150",
+      "description": "Freshly harvested potatoes.",
+      "reorder_level": "30"
+    },
+    {
+      "id": "i8k0",
+      "name": "Carrots",
+      "price": "Ksh 100.00",
+      "quantity": "80",
+      "description": "Fresh crunchy carrots.",
+      "reorder_level": "20"
+    },
+    {
+      "id": "j9l1",
+      "name": "Milk",
+      "price": "Ksh 90.00",
+      "quantity": "120",
+      "description": "Fresh cow's milk.",
+      "reorder_level": "50"
+    },
+    {
+      "id": "k0m2",
+      "name": "Eggs",
+      "price": "Ksh 300.00",
+      "quantity": "200",
+      "description": "Fresh farm eggs.",
+      "reorder_level": "100"
+    },
+    {
+      "id": "l1n3",
+      "name": "Cheese",
+      "price": "Ksh 600.00",
+      "quantity": "40",
+      "description": "Delicious cheddar cheese.",
+      "reorder_level": "15"
+    },
+    {
+      "id": "m2o4",
+      "name": "Butter",
+      "price": "Ksh 400.00",
+      "quantity": "60",
+      "description": "Creamy butter.",
+      "reorder_level": "20"
+    },
+    {
+      "id": "n3p5",
+      "name": "Bread",
+      "price": "Ksh 80.00",
+      "quantity": "150",
+      "description": "Freshly baked bread.",
+      "reorder_level": "50"
+    },
+    {
+      "id": "o4q6",
+      "name": "Pasta",
+      "price": "Ksh 150.00",
+      "quantity": "100",
+      "description": "Italian pasta.",
+      "reorder_level": "30"
+    },
+    {
+      "id": "p5r7",
+      "name": "Canned Beans",
+      "price": "Ksh 220.00",
+      "quantity": "90",
+      "description": "Ready-to-eat canned beans.",
+      "reorder_level": "25"
+    },
+    {
+      "id": "q6s8",
+      "name": "Frozen Vegetables",
+      "price": "Ksh 250.00",
+      "quantity": "80",
+      "description": "Mixed frozen vegetables.",
+      "reorder_level": "40"
+    },
+    {
+      "id": "r7t9",
+      "name": "Honey",
+      "price": "Ksh 500.00",
+      "quantity": "30",
+      "description": "Pure organic honey.",
+      "reorder_level": "10"
     }
-   
   ],
   "purchases": [
     {
