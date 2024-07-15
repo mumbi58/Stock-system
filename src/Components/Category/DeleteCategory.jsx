@@ -83,15 +83,7 @@ export default function DeleteCategory() {
             onChange={(e) => setCategoryName(e.target.value)}
           />
         </FormControl>
-        <FormControl isRequired>
-          <FormLabel>Description</FormLabel>
-          <Input
-            disabled
-            type="text"
-            value={categoryDescription}
-            onChange={(e) => setCategoryDescription(e.target.value)}
-          />
-        </FormControl>
+        
         <Button type="button" mt={4} onClick={handleSubmit} colorScheme='red'>Delete Category</Button>
       </form>
     </Box>

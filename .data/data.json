@@ -47,8 +47,40 @@
           "price": 29.99
         }
       ]
+    },
+    {
+      "category_id": 4,
+      "category_name": "Groceries",
+      "products": [
+        {
+          "product_id": "6e4b",
+          "product_name": "Maize",
+          "price": "Ksh 500.00",
+          "quantity": "70",
+          "description": "kj",
+          "reorder_level": "10"
+        },
+        {
+          "product_id": "81d7",
+          "product_name": "Soda",
+          "price": "Ksh 100.00",
+          "quantity": "100",
+          "description": "jh",
+          "reorder_level": "70"
+        },
+        {
+          "product_id": "a4df",
+          "product_name": "Yellow Bean",
+          "price": "Ksh 1,000.00",
+          "quantity": "70",
+          "description": "hjj",
+          "reorder_level": "7"
+        }
+      ]
     }
   ],
+
+
   "users": [
     {
       "email": "kariukimumbi475@gmail.com",

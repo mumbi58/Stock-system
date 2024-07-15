@@ -15,7 +15,7 @@ export default function EditCategory() {
             const category = categories.find(cat => cat.category_id === parseInt(id));
             if (category) {
                 setCategoryName(category.category_name);
-                setCategoryDescription(category.description);
+                
             }
         }
     }, [loading, error, categories, id]);
@@ -77,14 +77,7 @@ export default function EditCategory() {
                         onChange={(e) => setCategoryName(e.target.value)}
                     />
                 </FormControl>
-                <FormControl isRequired>
-                    <FormLabel>Description</FormLabel>
-                    <Input
-                        type="text"
-                        value={categoryDescription}
-                        onChange={(e) => setCategoryDescription(e.target.value)}
-                    />
-                </FormControl>
+               
                 <Button type="submit" mt={4} colorScheme="blue">Update Category</Button>
             </form>
         </Box>

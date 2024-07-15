@@ -67,6 +67,8 @@ function App() {
               <Route path="/delete-category/:id" element={<DeleteCategory/>} />
 
 
+
+
             </Routes>
           </Box>
         {/* <MainContent /> */}
