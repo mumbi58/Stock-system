@@ -22,7 +22,7 @@ export default function Products() {
   };
 
   const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Calculate the index of the last product on the current page

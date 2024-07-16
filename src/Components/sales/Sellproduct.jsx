@@ -1,15 +1,12 @@
 import React, { useEffect, useState, useContext, createContext } from 'react';
 import { Link as ReactRouterLink } from "react-router-dom";
-import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, IconButton, TableContainer, ButtonGroup, useToast } from '@chakra-ui/react';
-import { AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, ButtonGroup, TableContainer, useToast } from '@chakra-ui/react';
 import { MdAddShoppingCart } from "react-icons/md";
-import Cart from './cart';
 import { useNavigate } from 'react-router-dom';
 
 export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-
   return (
     <CartContext.Provider value={{ cartItems, setCartItems }}>
       {children}
@@ -19,10 +16,9 @@ export const CartProvider = ({ children }) => {
 
 export const SalesContext = createContext();
 export const SalesProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-
+  const [salesItems, setSalesItems] = useState([]);
   return (
-    <SalesContext.Provider value={{ cartItems, setCartItems }}>
+    <SalesContext.Provider value={{ salesItems, setSalesItems }}>
       {children}
     </SalesContext.Provider>
   );
@@ -30,9 +26,9 @@ export const SalesProvider = ({ children }) => {
 
 export const calculateTotalPrice = (items) => {
   return items.reduce((total, item) => {
-    const priceString = item.price; // Assuming priceString is "Ksh 300.00"
-    const cleanedPriceString = priceString.replace(/[^\d.-]/g, ''); // Remove non-numeric characters
-    const price = parseFloat(cleanedPriceString); // Convert to float
+    const priceString = item.price;
+    const cleanedPriceString = priceString.replace(/[^\d.-]/g, '');
+    const price = parseFloat(cleanedPriceString);
     return total + (price * item.quantity);
   }, 0);
 };
@@ -54,25 +50,17 @@ const calculateTotalQuantity = (items) => {
 
 export default function SellProduct() {
   const [products, setProducts] = useState([]);
-  const [totalItems, setTotalItems] = useState(0);
   const { cartItems, setCartItems } = useContext(CartContext);
   const toast = useToast();
   const [showProduct, setShowProduct] = useState(false);
   const navigate = useNavigate();
 
-  const productVisibility = () => {
-    setShowProduct(!showProduct);
-  };
-
-  const navigateToCart = () => {
-    navigate('/cart');
-  };
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 7;
 
   const handleAddToCart = (product) => {
-    setCartItems((prevItems) =>
-      computeCartItems(prevItems, product)
-    );
-
+    setCartItems((prevItems) => computeCartItems(prevItems, product));
     toast({
       title: `${product.name} added to cart.`,
       status: "success",
@@ -95,29 +83,29 @@ export default function SellProduct() {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
   }, []);
 
-  const totalPrice = calculateTotalPrice(cartItems);
-  const subTotal = calculateTotalQuantity(cartItems);
+  // Pagination logic
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(products.length / productsPerPage);
 
   return (
     <Box p="5" shadow="md" width="100%" height="100%" pl='200px'>
       <Stat>
         <Flex justify="space-between" align="center">
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
-          <ChakraLink as={ReactRouterLink} to="/product"></ChakraLink>
-
           <ButtonGroup gap="1">
             <Button
               colorScheme='blue'
               size="sm"
               py={4}
               leftIcon={<MdAddShoppingCart size={30} />}
-              onClick={navigateToCart}
+              onClick={() => navigate('/cart')}
             >
-              {subTotal}
+              {calculateTotalQuantity(cartItems)}
             </Button>
           </ButtonGroup>
         </Flex>
@@ -134,10 +122,10 @@ export default function SellProduct() {
                 </Tr>
               </Thead>
               <Tbody>
-                {products.map((product) => (
+                {currentProducts.map((product) => (
                   <Tr key={product.id} style={{ fontSize: '16px', fontWeight: "normal" }}>
                     <Td>
-                      <ChakraLink as={ReactRouterLink} to={`/product/${product.id}`} onClick={productVisibility} cursor="pointer">
+                      <ChakraLink as={ReactRouterLink} to={`/product/${product.id}`} onClick={() => setShowProduct(!showProduct)} cursor="pointer">
                         {product.name}
                       </ChakraLink>
                     </Td>
@@ -152,6 +140,7 @@ export default function SellProduct() {
                           leftIcon={<MdAddShoppingCart size={30} />}
                           onClick={() => handleAddToCart(product)}
                         >
+                          Add
                         </Button>
                       </ButtonGroup>
                     </Td>
@@ -162,6 +151,20 @@ export default function SellProduct() {
             {showProduct && <Product1 />}
           </TableContainer>
         </StatNumber>
+
+        {/* Pagination Controls */}
+        <Flex justify="space-between" mt={4}>
+          {currentPage > 1 && (
+            <Button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} variant="outline" colorScheme='blue'>
+              Previous
+            </Button>
+          )}
+          {currentPage < totalPages && (
+            <Button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} variant="outline" colorScheme='blue'>
+              Next
+            </Button>
+          )}
+        </Flex>
       </Stat>
     </Box>
   );

@@ -1,6 +1,6 @@
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer, Box, List, ListItem, ButtonGroup, Input, Link as ChakraLink, Button } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import useFetchCategories from "../Hooks/fetchcategory";
+  import useFetchCategories from "../Hooks/fetchcategory.jsx";
 
 export default function CategoryDetails() {
   const { category_id } = useParams();

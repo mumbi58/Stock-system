@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Link as ReactRouterLink } from 'react-router-dom';
-import useFetchCategories from '../Hooks/fetchcategory';
+import useFetchCategories from '../Hooks/fetchcategory.jsx';
 import { Box, Stack, Stat, StatLabel, Button, ButtonGroup, Link as ChakraLink } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon, ViewIcon } from '@chakra-ui/icons';
 export default function Category() {

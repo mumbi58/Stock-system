@@ -1,7 +1,7 @@
 import { FormControl, FormLabel, Input, Button, useToast, Box } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import useFetchCategories from '../Hooks/fetchcategory';
+import useFetchCategories from '../Hooks/fetchcategory.jsx';
 export default function DeleteCategory() {
   const { id } = useParams();
   const toast = useToast();

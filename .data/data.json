@@ -512,6 +512,24 @@
         "quantity": 1
       },
       "id": "e24c"
+    },
+    {
+      "0": {
+        "name": "Cooking Oil",
+        "price": "Ksh 300.00",
+        "quantity": 1
+      },
+      "1": {
+        "name": "Salt",
+        "price": "Ksh 50.00",
+        "quantity": 1
+      },
+      "2": {
+        "name": "Onions",
+        "price": "Ksh 120.00",
+        "quantity": 2
+      },
+      "id": "7b8f"
     }
   ],
   "notifications": [
