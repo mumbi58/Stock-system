@@ -1,24 +1,6 @@
 {
   "category": [
     {
-      "category_id": 1,
-      "category_name": "Electronic",
-      "products": [
-        {
-          "product_id": 101,
-          "product_name": "Smartphone",
-          "price": 699.99
-        },
-        {
-          "product_id": 102,
-          "product_name": "Laptop",
-          "price": 999.99
-        }
-      ],
-      "id": "0946",
-      "name": "Electronic"
-    },
-    {
       "category_id": 2,
       "category_name": "Home",
       "products": [
@@ -35,23 +17,6 @@
       ],
       "id": "4351",
       "name": "Home "
-    },
-    {
-      "category_id": 3,
-      "category_name": "Books",
-      "products": [
-        {
-          "product_id": 301,
-          "product_name": "Fiction",
-          "price": 19.99
-        },
-        {
-          "product_id": 302,
-          "product_name": "Non-Fiction",
-          "price": 29.99
-        }
-      ],
-      "id": "a72a"
     },
     {
       "category_id": 4,
