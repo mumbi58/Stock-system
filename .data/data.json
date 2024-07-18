@@ -2,7 +2,7 @@
   "category": [
     {
       "category_id": 1,
-      "category_name": "Electronics",
+      "category_name": "Electronic",
       "products": [
         {
           "product_id": 101,
@@ -15,11 +15,12 @@
           "price": 999.99
         }
       ],
-      "id": "0946"
+      "id": "0946",
+      "name": "Electronic"
     },
     {
       "category_id": 2,
-      "category_name": "Home Appliances",
+      "category_name": "Home",
       "products": [
         {
           "product_id": 201,
@@ -32,7 +33,8 @@
           "price": 299.99
         }
       ],
-      "id": "4351"
+      "id": "4351",
+      "name": "Home "
     },
     {
       "category_id": 3,
@@ -80,7 +82,8 @@
           "reorder_level": "7"
         }
       ],
-      "id": "da60"
+      "id": "da60",
+      "name": "GR"
     }
   ],
   "users": [
@@ -147,14 +150,6 @@
     }
   ],
   "products": [
-    {
-      "id": "81d7",
-      "name": "Soda",
-      "price": "Ksh 100.00",
-      "quantity": "100",
-      "description": "Refreshing carbonated drink.",
-      "reorder_level": "70"
-    },
     {
       "id": "a3b4",
       "name": "Rice",
