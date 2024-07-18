@@ -9,13 +9,15 @@ export default function DeleteCategory() {
   const { categories, loading, error } = useFetchCategories();
   const [categoryName, setCategoryName] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
+  const [CategoryObject, setCategoryObject] = useState([])
 
   useEffect(() => {
     if (!loading && !error) {
-      const category = categories.find(cat => cat.category_id === parseInt(id));
+      const category = categories.find(cat => cat.id === (id));
       if (category) {
         setCategoryName(category.category_name);
         setCategoryDescription(category.description);
+        setCategoryObject(category)
       }
     }
   }, [loading, error, categories, id]);
@@ -24,9 +26,9 @@ export default function DeleteCategory() {
     event.preventDefault();
 
     const updatedCategory = {
-      name: categoryName,
-      description: categoryDescription,
-      deleted: true  // Mark as deleted
+      category_name: categoryName,
+      // deleted: true , 
+      id
     };
 
     const response = await fetch(`http://localhost:8000/categories/${id}`, {

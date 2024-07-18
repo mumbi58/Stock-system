@@ -36,11 +36,11 @@ export default function Category() {
               </Stat>
 
               <ButtonGroup gap="1">
-                <ChakraLink as={ReactRouterLink} to={`/edit-category/${category.category_id}`}>
+                <ChakraLink as={ReactRouterLink} to={`/edit-category/${category.id}`}>
                   <Button colorScheme='blue' size="sm" leftIcon={<EditIcon />}>Edit</Button>
                 </ChakraLink>
 
-                <ChakraLink as={ReactRouterLink} to={`/delete-category/${category.category_id}`}>
+                <ChakraLink as={ReactRouterLink} to={`/delete-category/${category.id}`}>
                   <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button>
                 </ChakraLink>
 
