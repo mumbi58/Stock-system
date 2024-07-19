@@ -20,7 +20,7 @@
     },
     {
       "category_id": 4,
-      "category_name": "Groceries",
+      "category_name": "Grocerie",
       "products": [
         {
           "product_id": "6e4b",
@@ -49,6 +49,73 @@
       ],
       "id": "da60",
       "name": "GR"
+    },
+    {
+      "id": "17f9",
+      "category_name": "Cereals",
+      "products": [
+        {
+          "product_name": "beans",
+          "price": "100"
+        },
+        {
+          "product_name": "maize",
+          "price": "300"
+        },
+        {
+          "product_name": "kamande",
+          "price": "500"
+        },
+        {
+          "product_name": "ndengu",
+          "price": "300"
+        }
+      ]
+    },
+    {
+      "id": "a66ed9f0-d8f0-48f7-a121-6eabb208d7fe",
+      "category_id": "85eb4148-077a-4790-b918-e7d4dee72f21",
+      "category_name": "Utensils",
+      "products": [
+        {
+          "name": "cups",
+          "price": "100",
+          "product_id": "aa6706d4-c590-4030-9356-8054f7835bdd"
+        },
+        {
+          "name": "plates",
+          "price": "200",
+          "product_id": "ed817f23-64a8-439a-9623-aa9aaf48cb79"
+        },
+        {
+          "name": "thermos",
+          "price": "300",
+          "product_id": "aae96735-1be1-4e39-8fef-7416de54e770"
+        },
+        {
+          "name": "spoons",
+          "price": "50",
+          "product_id": "70882900-b84b-47a4-b40a-8456fc237e2c"
+        }
+      ]
+    },
+    {
+      "id": "1426",
+      "category_name": "stationaries",
+      "products": [
+        {
+          "product_name": "books",
+          "price": "30"
+        },
+        {
+          "product_name": "pens",
+          "price": "10"
+        },
+        {
+          "product_name": "ruler",
+          "price": "30"
+        }
+      ]
     }
   ],
   "users": [
@@ -116,20 +183,13 @@
   ],
   "products": [
     {
-      "id": "a3b4",
       "name": "Rice",
-      "price": "Ksh 2,500.00",
+      "price": null,
       "quantity": "50",
       "description": "High-quality long-grain rice.",
-      "reorder_level": "20"
-    },
-    {
-      "id": "b2e3",
-      "name": "Sugar",
-      "price": "Ksh 150.00",
-      "quantity": "200",
-      "description": "Granulated white sugar.",
-      "reorder_level": "50"
+      "reorder_level": "20",
+      "status": "deleted",
+      "id": "a3b4"
     },
     {
       "id": "c1d2",
@@ -188,28 +248,13 @@
       "reorder_level": "20"
     },
     {
-      "id": "j9l1",
-      "name": "Milk",
-      "price": "Ksh 90.00",
-      "quantity": "120",
-      "description": "Fresh cow's milk.",
-      "reorder_level": "50"
-    },
-    {
-      "id": "k0m2",
-      "name": "Eggs",
-      "price": "Ksh 300.00",
-      "quantity": "200",
-      "description": "Fresh farm eggs.",
-      "reorder_level": "100"
-    },
-    {
-      "id": "l1n3",
       "name": "Cheese",
-      "price": "Ksh 600.00",
+      "price": null,
       "quantity": "40",
       "description": "Delicious cheddar cheese.",
-      "reorder_level": "15"
+      "reorder_level": "15",
+      "status": "deleted",
+      "id": "l1n3"
     },
     {
       "id": "m2o4",
@@ -490,6 +535,45 @@
         "quantity": 2
       },
       "id": "7b8f"
+    },
+    {
+      "0": {
+        "name": "Rice",
+        "price": "Ksh 2,500.00",
+        "quantity": 2
+      },
+      "1": {
+        "name": "Sugar",
+        "price": "Ksh 150.00",
+        "quantity": 1
+      },
+      "2": {
+        "name": "Flour",
+        "price": "Ksh 120.00",
+        "quantity": 1
+      },
+      "id": "fe79"
+    },
+    {
+      "0": {
+        "name": "Sugar",
+        "price": "Ksh 150.00",
+        "quantity": 5
+      },
+      "1": {
+        "name": "Rice",
+        "price": "Ksh 2,500.00",
+        "quantity": 3
+      },
+      "id": "09fb"
+    },
+    {
+      "0": {
+        "name": "Rice",
+        "price": "Ksh 2,500.00",
+        "quantity": 1
+      },
+      "id": "9377"
     }
   ],
   "notifications": [

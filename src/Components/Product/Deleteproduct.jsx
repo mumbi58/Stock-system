@@ -1,15 +1,19 @@
-import { FormControl, FormLabel, Input, Button,Box } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button,Box,useToast } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function DeleteProduct() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const toast = useToast();
+
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [reorderLevel, setReorderLevel] = useState();
   const [quantity, setQuantity] = useState();
   const [description, setDescription] = useState('');
+  const [status, setStatus] = useState('');
+
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -20,6 +24,8 @@ export default function DeleteProduct() {
       setQuantity(product.quantity);
       setDescription(product.description);
       setReorderLevel(product.reorder_level);
+      setStatus(product.status);
+
     };
 
     fetchProduct();
@@ -33,11 +39,13 @@ export default function DeleteProduct() {
       price: parseFloat(productPrice),
       quantity,
       description,
-      reorder_level: reorderLevel
+      reorder_level: reorderLevel,
+      status: "deleted"
+
     };
 
     const response = await fetch(`http://localhost:8000/products/${id}`, {
-      method: "DELETE",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
@@ -50,7 +58,17 @@ export default function DeleteProduct() {
       setQuantity('');
       setDescription('');
       setReorderLevel('');
+      setStatus('')
       console.log('Product updated successfully');
+      toast({
+        title: "product disabled successfully.",
+                // description: "The user information has been updated.",
+                status: "success",
+                
+                duration: 5000,
+                isClosable: true,
+                position: "top-right",
+      })
       navigate('/products');
     } else {
       const result = await response.json();

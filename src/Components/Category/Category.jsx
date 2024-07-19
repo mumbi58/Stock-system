@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import useFetchCategories from '../Hooks/fetchcategory.jsx';
 import { Box, Stack, Stat, StatLabel, Button, ButtonGroup, Link as ChakraLink } from '@chakra-ui/react';
-import { EditIcon, DeleteIcon, ViewIcon } from '@chakra-ui/icons';
+import { EditIcon, DeleteIcon, ViewIcon, AddIcon } from '@chakra-ui/icons';
 export default function Category() {
   const { categories, loading, error } = useFetchCategories();
   const navigate = useNavigate();
@@ -44,8 +44,14 @@ export default function Category() {
                   <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button>
                 </ChakraLink>
 
+
+
                 <ChakraLink >
                   <Button colorScheme='blue' size="sm" leftIcon={<ViewIcon />} onClick={() => handleCategory(category.category_id)}>View</Button>
+                </ChakraLink>
+
+                <ChakraLink as={ReactRouterLink} to="/add-category">
+                  <Button leftIcon={<AddIcon />} colorScheme='blue' size="sm">Add</Button>
                 </ChakraLink>
               </ButtonGroup>
 

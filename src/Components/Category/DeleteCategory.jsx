@@ -31,7 +31,7 @@ export default function DeleteCategory() {
       id
     };
 
-    const response = await fetch(`http://localhost:8000/categories/${id}`, {
+    const response = await fetch(`http://localhost:8000/category/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"
@@ -43,7 +43,7 @@ export default function DeleteCategory() {
       setCategoryName("");
       setCategoryDescription("");
       console.log('Category deleted successfully');
-      navigate('/categories');
+      navigate('/category');
       toast({
         title: "Category deleted successfully.",
         status: "success",

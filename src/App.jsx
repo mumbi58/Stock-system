@@ -26,6 +26,7 @@ import CategoryDetails from './Components/Category/Category1';
 import LoginPage from './Components/login';
 import AdminDashboard from './Components/AdminDashboard';
 import UserProfile from './Components/userprofile';
+import AddCategory from './Components/Category/AddCategory';
 
 function App() {
   const [userRole, setUserRole] = useState('admin');
@@ -67,6 +68,7 @@ function App() {
                   <Route path="/category/:category_id" element={<CategoryDetails />} />
                   <Route path="/edit-category/:id" element={<EditCategory />} />
                   <Route path="/delete-category/:id" element={<DeleteCategory />} />
+                  <Route path="/add-category" element={<AddCategory/>} />
                 </Routes>
               </Box>
             </Flex>
