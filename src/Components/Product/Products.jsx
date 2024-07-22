@@ -25,24 +25,18 @@ export default function Products() {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Calculate the index of the last product on the current page
   const indexOfLastProduct = currentPage * productsPerPage;
-  // Calculate the index of the first product on the current page
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  // Get the products for the current page
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-  // Function to handle page change to the next page
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(prevPage => prevPage + 1);
     }
   };
 
-  // Function to handle page change to the previous page
   const handlePrevPage = () => {
     if (currentPage > 1) {
       setCurrentPage(prevPage => prevPage - 1);
@@ -60,6 +54,8 @@ export default function Products() {
               onChange={handleSearch}
               size="sm"
               width="200px"
+              maxLength={3} 
+
             />
           </ButtonGroup>
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
