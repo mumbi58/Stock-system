@@ -51,28 +51,6 @@
       "name": "GR"
     },
     {
-      "id": "17f9",
-      "category_name": "Cereals",
-      "products": [
-        {
-          "product_name": "beans",
-          "price": "100"
-        },
-        {
-          "product_name": "maize",
-          "price": "300"
-        },
-        {
-          "product_name": "kamande",
-          "price": "500"
-        },
-        {
-          "product_name": "ndengu",
-          "price": "300"
-        }
-      ]
-    },
-    {
       "id": "a66ed9f0-d8f0-48f7-a121-6eabb208d7fe",
       "category_id": "85eb4148-077a-4790-b918-e7d4dee72f21",
       "category_name": "Utensils",
@@ -208,12 +186,13 @@
       "reorder_level": "40"
     },
     {
-      "id": "e4g6",
       "name": "Salt",
-      "price": "Ksh 50.00",
+      "price": null,
       "quantity": "300",
       "description": "Refined table salt.",
-      "reorder_level": "100"
+      "reorder_level": "100",
+      "status": "deleted",
+      "id": "e4g6"
     },
     {
       "id": "f5h7",
