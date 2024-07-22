@@ -9,6 +9,7 @@ const LoginPage = () => {
 
     const handleLogin = (event) => {
         event.preventDefault();
+        localStorage.setItem('loggedInUser', JSON.stringify({ username }));
 
         
         navigate('/admin');
