@@ -162,7 +162,7 @@
   "products": [
     {
       "name": "Rice",
-      "price": null,
+      "price": 890,
       "quantity": "50",
       "description": "High-quality long-grain rice.",
       "reorder_level": "20",

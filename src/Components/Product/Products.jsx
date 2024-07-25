@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Link as ReactRouterLink } from "react-router-dom";
 import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, ButtonGroup, TableContainer, Input } from '@chakra-ui/react';
-import { AddIcon, DeleteIcon, EditIcon, SearchIcon, ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
+import { AddIcon, DeleteIcon, EditIcon, ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
 import Product1 from './Product1';
 import useFetchProducts from '../Hooks/fetchproduct';
 
 export default function Products() {
   const [showProduct, setShowProduct] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const { products, error } = useFetchProducts();
+  const { products, error, refetch } = useFetchProducts(); // Assuming refetch is available to refresh the product list
 
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
@@ -18,12 +18,34 @@ export default function Products() {
   };
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    if (e.target.value.length <= 3) {
+      setSearchTerm(e.target.value);
+    }
   };
 
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleReactivate = async (productId) => {
+    // Assuming you have an API to reactivate the product
+    await fetch(`/api/products/${productId}/reactivate`, { method: 'POST' });
+    refetch();
+    console.log("heey babes");
+  };
+
+  const filteredProducts = searchTerm.length < 3
+    ? products
+    : products
+      .filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .sort((a, b) => {
+        if (a.status === 'deleted' && b.status !== 'deleted') {
+          return 1;
+        } else if (a.status !== 'deleted' && b.status === 'deleted') {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -54,8 +76,7 @@ export default function Products() {
               onChange={handleSearch}
               size="sm"
               width="200px"
-              maxLength={3} 
-
+            // maxLength={3}
             />
           </ButtonGroup>
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
@@ -80,17 +101,28 @@ export default function Products() {
                 ) : (
                   currentProducts.map((product) => (
                     <Tr key={product.id} style={{ fontSize: '16px', fontWeight: "normal" }}>
-                      <ChakraLink as={ReactRouterLink} to={`/product/${product.id}`} onClick={productVisibility} cursor="pointer">
-                        {product.name}
-                      </ChakraLink>
+                      <Td>
+                        <ChakraLink as={ReactRouterLink} to={`/product/${product.id}`} onClick={productVisibility} cursor="pointer">
+                          {product.name}
+                        </ChakraLink>
+                      </Td>
                       <Td>{product.price}</Td>
                       <ButtonGroup gap="1">
                         <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}`}>
-                          <Button colorScheme='blue' size="sm" leftIcon={<EditIcon />}>Edit</Button>
+                          <Button
+                            colorScheme='blue'
+                            size="sm"
+                            leftIcon={<EditIcon />}
+                            onClick={() => handleReactivate(product.id)}
+                          >
+                            {product.status === 'deleted' ? 'Reactivate' : 'Edit'}
+                          </Button>
                         </ChakraLink>
-                        <ChakraLink as={ReactRouterLink} to={`/delete/${product.id}`}>
-                          <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button>
-                        </ChakraLink>
+                        {product.status !== 'deleted' && (
+                          <ChakraLink as={ReactRouterLink} to={`/delete/${product.id}`}>
+                            <Button colorScheme='red' size="sm" leftIcon={<DeleteIcon />}>Delete</Button>
+                          </ChakraLink>
+                        )}
                       </ButtonGroup>
                     </Tr>
                   ))

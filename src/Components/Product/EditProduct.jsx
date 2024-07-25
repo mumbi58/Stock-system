@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input, Button,useToast,Box } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Button, useToast, Box,Select } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ export default function EditProduct() {
     const [reorderLevel, setReorderLevel] = useState();
     const [quantity, setQuantity] = useState();
     const [description, setDescription] = useState('');
+    const [status, setStatus] = useState('');
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -21,6 +22,7 @@ export default function EditProduct() {
             setQuantity(product.quantity);
             setDescription(product.description);
             setReorderLevel(product.reorder_level);
+            setStatus(product.status)
         };
 
         fetchProduct();
@@ -34,7 +36,8 @@ export default function EditProduct() {
             price: parseFloat(productPrice),
             quantity,
             description,
-            reorder_level: reorderLevel
+            reorder_level: reorderLevel,
+            status
         };
 
         const response = await fetch(`http://localhost:8000/products/${id}`, {
@@ -51,6 +54,7 @@ export default function EditProduct() {
             setQuantity('');
             setDescription('');
             setReorderLevel('');
+            setStatus('')
             console.log('Product updated successfully');
             navigate('/products');
             toast({
@@ -77,49 +81,60 @@ export default function EditProduct() {
 
     return (
         <Box pl='200px'>
-        <form onSubmit={handleSubmit}>
-            <FormControl isRequired>
-                <FormLabel>Name</FormLabel>
-                <Input
-                    type="text"
-                    value={productName}
-                    onChange={(e) => setProductName(e.target.value)}
-                />
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Price</FormLabel>
-                <Input
-                    type="number"
-                    value={productPrice}
-                    onChange={(e) => setProductPrice(e.target.value)}
-                />
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Quantity</FormLabel>
-                <Input
-                    type="number"
-                    value={quantity}
-                    onChange={(e) => setQuantity(e.target.value)}
-                />
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Description</FormLabel>
-                <Input
-                    type="text"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                />
-            </FormControl>
-            <FormControl isRequired>
-                <FormLabel>Reorder</FormLabel>
-                <Input
-                    type="number"
-                    value={reorderLevel}
-                    onChange={(e) => setReorderLevel(e.target.value)}
-                />
-            </FormControl>
-            <Button type="submit" mt={4}>Update Product</Button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                <FormControl isRequired>
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                        type="text"
+                        value={productName}
+                        onChange={(e) => setProductName(e.target.value)}
+                    />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Price</FormLabel>
+                    <Input
+                        type="number"
+                        value={productPrice}
+                        onChange={(e) => setProductPrice(e.target.value)}
+                    />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Quantity</FormLabel>
+                    <Input
+                        type="number"
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}
+                    />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Description</FormLabel>
+                    <Input
+                        type="text"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Reorder</FormLabel>
+                    <Input
+                        type="number"
+                        value={reorderLevel}
+                        onChange={(e) => setReorderLevel(e.target.value)}
+                    />
+                </FormControl>
+                <FormControl isRequired>
+                    <FormLabel>Status</FormLabel>
+                    <Select
+                        value={status} 
+                        onChange={(e) => setStatus(e.target.value)} 
+                    >
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </Select>
+                </FormControl>
+
+                <Button type="submit" mt={4}>Update Product</Button>
+            </form>
         </Box>
     );
 }
