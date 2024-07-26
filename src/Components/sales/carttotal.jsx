@@ -1,22 +1,32 @@
 import React from 'react';
 import { Box, Text, Button, Flex } from '@chakra-ui/react';
-
 import useFetchSalesData from '../Hooks/fetchsales';
 
 const CartTotal = () => {
     const sales = useFetchSalesData();
 
+    // Function to calculate total price
     const calculateCartTotal = (cart) => {
         let total = 0;
         Object.values(cart).forEach((item) => {
             if (item.hasOwnProperty('price') && item.hasOwnProperty('quantity')) {
-                const numericPrice = parseFloat(item.price.replace(/[^\d.-]/g, ''));
+                // Handle price that might be a string with currency symbols
+                let numericPrice;
+                if (typeof item.price === 'string') {
+                    numericPrice = parseFloat(item.price.replace(/[^\d.-]/g, ''));
+                } else if (typeof item.price === 'number') {
+                    numericPrice = item.price;
+                } else {
+                    console.error(`Invalid price format for item ${item.name}: ${item.price}`);
+                    return;
+                }
                 total += numericPrice * item.quantity;
             }
         });
         return total.toFixed(2);
     };
 
+    // Function to handle print
     const handlePrintCart = (cartId) => {
         const cartDetails = sales.find(cart => cart.id === cartId);
         if (cartDetails) {
@@ -38,7 +48,10 @@ const CartTotal = () => {
                             <div class="container">
                                 <div class="cart-details">
                                     <p>ID: ${cartDetails.id}</p>
-                                    ${Object.values(cartDetails).filter(item => typeof item === 'object' && item.hasOwnProperty('name') && item.hasOwnProperty('price') && item.hasOwnProperty('quantity')).map(item => `<p>${item.name} - Ksh ${item.price} - Quantity: ${item.quantity}</p>`).join('\n')}
+                                    ${Object.values(cartDetails)
+                        .filter(item => typeof item === 'object' && item.hasOwnProperty('name') && item.hasOwnProperty('price') && item.hasOwnProperty('quantity'))
+                        .map(item => `<p>${item.name} - Ksh ${item.price} - Quantity: ${item.quantity}</p>`)
+                        .join('\n')}
                                     <p>Total Price: Ksh ${calculateCartTotal(cartDetails)}</p>
                                 </div>
                             </div>
@@ -47,7 +60,6 @@ const CartTotal = () => {
                 `);
                 printWindow.document.close();
                 printWindow.print();
-                printWindow.close();
             } else {
                 alert('Popup blocked. Please allow popups for this site to print.');
             }

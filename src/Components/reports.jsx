@@ -4,43 +4,36 @@ import useFetchSalesData from './Hooks/fetchsales';
 
 export default function Reports() {
   const sales = useFetchSalesData();
-  // console.log(sales);
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
 
-  // Helper function to convert price string to number
-  const parsePrice = (price) => {
-    if (!price) return 0; 
-    return parseFloat(price.replace(/[^0-9.-]+/g, ""));
-  };
-
   // Helper function to parse date string to Date object
   const parseDate = (dateString) => {
+    if (!dateString) return new Date(); // Return current date if dateString is empty or undefined
     const [year, month, day] = dateString.split('-');
     return new Date(`${year}-${month}-${day}`);
   };
 
-  
   const filteredSales = sales.filter(sale => {
-    if (!startDate && !endDate) return true; 
+    if (!startDate && !endDate) return true;
 
-    const saleDate = parseDate(sale.date);
-    const start = startDate ? parseDate(startDate) : new Date(0); 
-    const end = endDate ? parseDate(endDate) : new Date(); 
+    const saleDate = sale.date ? parseDate(sale.date) : new Date();
+    const start = startDate ? parseDate(startDate) : new Date(0);
+    const end = endDate ? parseDate(endDate) : new Date();
     return saleDate >= start && saleDate <= end;
   });
 
   // Process sales data to combine products with the same name and sum their quantities
   const processedProducts = filteredSales.reduce((acc, sale) => {
     Object.values(sale).forEach((item) => {
-      if (item.name) { 
+      if (item.name) {
         const existingProduct = acc.find(product => product.name === item.name);
         if (existingProduct) {
           existingProduct.quantity += item.quantity;
-          existingProduct.totalPrice += parsePrice(item.price) * item.quantity;
+          existingProduct.totalPrice += item.price * item.quantity; // Use item.price directly
         } else {
-          acc.push({ ...item, totalPrice: parsePrice(item.price) * item.quantity });
+          acc.push({ ...item, totalPrice: item.price * item.quantity }); // Use item.price directly
         }
       }
     });
@@ -89,7 +82,7 @@ export default function Reports() {
                       <tr>
                         <td>${product.name}</td>
                         <td>${product.quantity}</td>
-                        <td>${product.price}</td>
+                        <td>${product.price.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</td>
                         <td>Ksh ${product.totalPrice.toFixed(2)}</td>
                       </tr>
                     `).join('')}
@@ -159,8 +152,8 @@ export default function Reports() {
             <Tr key={index}>
               <Td>{product.name}</Td>
               <Td>{product.quantity}</Td>
-              <Td>{product.price}</Td>
-              <Td>{(product.totalPrice).toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td>
+              <Td>{product.price.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td> {/* Format price */}
+              <Td>{product.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td> {/* Format totalPrice */}
             </Tr>
           ))}
           <Tr>

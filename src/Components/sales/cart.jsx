@@ -8,7 +8,7 @@ const Cart = () => {
   const { cartItems, setCartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  //  handle quantity changes
+  // Handle quantity changes
   const handleQuantityChange = (item, operation) => {
     const updatedItems = cartItems.map(cartItem => {
       if (cartItem.id === item.id) {
@@ -21,26 +21,29 @@ const Cart = () => {
     setCartItems(updatedItems);
   };
 
-  //  removing an item
+  // Remove an item
   const handleRemoveItem = (item) => {
     const updatedItems = cartItems.filter(cartItem => cartItem.id !== item.id);
     setCartItems(updatedItems);
   };
 
+  // Calculate total price
   const totalPrice = cartItems.reduce((total, item) => {
+    let price;
     if (typeof item.price === 'string') {
-      const priceString = item.price;
-      const cleanedPriceString = priceString.replace(/[^\d.-]/g, '');
-      const price = parseFloat(cleanedPriceString);
-
-      return total + (price * item.quantity);
+      const cleanedPriceString = item.price.replace(/[^\d.-]/g, '');
+      price = parseFloat(cleanedPriceString);
+    } else if (typeof item.price === 'number') {
+      price = item.price;
     } else {
-
       console.error(`Invalid price format for item ${item.name}`);
       return total;
     }
+
+    return total + (price * item.quantity);
   }, 0);
 
+  // Clear cart and add to sales
   const clearCartAndAddToSales = async () => {
     if (cartItems.length === 0) {
       console.error("Cart is empty");
@@ -49,7 +52,7 @@ const Cart = () => {
 
     const newSales = cartItems.map(item => ({
       name: item.name,
-      price: item.price,
+      price: item.price, // You might want to keep price as raw number here
       quantity: item.quantity
     }));
 
@@ -70,7 +73,7 @@ const Cart = () => {
       console.log("Sales data successfully sent:", data);
 
       setCartItems([]);
-      navigate('/dashboard  ');
+      navigate('/dashboard');
     } catch (error) {
       console.error("Error adding sales:", error);
     }
@@ -113,7 +116,7 @@ const Cart = () => {
         ))}
       </List>
       <Divider mt="4" />
-      <Text fontSize="xl" fontWeight="bold" mt="4">Total Price: ${totalPrice.toFixed(2)}</Text>
+      <Text fontSize="xl" fontWeight="bold" mt="4">Total Price: {totalPrice.toLocaleString('en-KE', { style: 'currency', currency: 'KES' })}</Text>
       <Button onClick={clearCartAndAddToSales} mt="4">Checkout</Button>
     </Box>
   );
