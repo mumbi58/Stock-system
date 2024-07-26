@@ -43,6 +43,15 @@ const Cart = () => {
     return total + (price * item.quantity);
   }, 0);
 
+  // Get today's date
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+  };
+
+  // Generate a unique ID (for simplicity, using a timestamp)
+  const generateId = () => `cart-${Date.now()}`;
+
   // Clear cart and add to sales
   const clearCartAndAddToSales = async () => {
     if (cartItems.length === 0) {
@@ -50,11 +59,21 @@ const Cart = () => {
       return;
     }
 
-    const newSales = cartItems.map(item => ({
-      name: item.name,
-      price: item.price, // You might want to keep price as raw number here
-      quantity: item.quantity
-    }));
+    const salesData = cartItems.reduce((acc, item, index) => {
+      acc[index] = {
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        date: getTodayDate() // Add the current date to each item
+      };
+      return acc;
+    }, {});
+
+    const cartData = {
+      id: generateId(), // Unique ID for the cart
+      date: getTodayDate(),
+      ...salesData
+    };
 
     try {
       const response = await fetch("http://localhost:8000/sales", {
@@ -62,7 +81,7 @@ const Cart = () => {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(newSales)
+        body: JSON.stringify(cartData)
       });
 
       if (!response.ok) {
