@@ -282,6 +282,22 @@
       "quantity": "30",
       "description": "Pure organic honey.",
       "reorder_level": "10"
+    },
+    {
+      "id": "30c1",
+      "name": "cabbage",
+      "price": "Ksh 20.00",
+      "quantity": "300",
+      "description": "fresh cabbages",
+      "reorder_level": "10"
+    },
+    {
+      "id": "2dda",
+      "name": "cabbage",
+      "price": 50,
+      "quantity": "300",
+      "description": "fresh ",
+      "reorder_level": "100"
     }
   ],
   "purchases": [
@@ -633,7 +649,6 @@
       "id": "f915",
       "date": "2024-07-18"
     }
-   
   ],
   "notifications": [
     {

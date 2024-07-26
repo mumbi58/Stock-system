@@ -23,14 +23,12 @@ export default function AddProducts() {
 
       const newProduct = {
         name: productName,
-        price: parseFloat(productPrice).toLocaleString('en-KE', {
-          style: 'currency',
-          currency: 'KES'
-        }),
+        price: parseFloat(productPrice), 
         quantity,
         description,
         reorder_level: reorderLevel
       };
+      
 
 
       const response = await fetch("http://localhost:8000/products", {

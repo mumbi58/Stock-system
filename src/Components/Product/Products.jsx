@@ -8,8 +8,7 @@ import useFetchProducts from '../Hooks/fetchproduct';
 export default function Products() {
   const [showProduct, setShowProduct] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const { products, error, refetch } = useFetchProducts(); // Assuming refetch is available to refresh the product list
-
+  const { products, error, refetch } = useFetchProducts();
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 9;
 
@@ -30,6 +29,14 @@ export default function Products() {
     console.log("heey babes");
   };
 
+  // Function to format price as currency
+  const formatPrice = (price) => {
+    return parseFloat(price).toLocaleString('en-KE', {
+      style: 'currency',
+      currency: 'KES'
+    });
+  };
+
   const filteredProducts = searchTerm.length < 3
     ? products
     : products
@@ -45,7 +52,6 @@ export default function Products() {
           return 0;
         }
       });
-
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
@@ -76,7 +82,6 @@ export default function Products() {
               onChange={handleSearch}
               size="sm"
               width="200px"
-            // maxLength={3}
             />
           </ButtonGroup>
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
@@ -106,7 +111,7 @@ export default function Products() {
                           {product.name}
                         </ChakraLink>
                       </Td>
-                      <Td>{product.price}</Td>
+                      <Td>{formatPrice(product.price)}</Td>
                       <ButtonGroup gap="1">
                         <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}`}>
                           <Button
