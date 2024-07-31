@@ -1,43 +1,65 @@
-
-import { Box, Button, VStack, Heading, Link as ChakraLink, Container } from '@chakra-ui/react';
+import { useState } from 'react';
+import {
+  Box,
+  Button,
+  VStack,
+  Link as ChakraLink,
+  Collapse,
+  IconButton,
+} from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { Link as ReactRouterLink } from 'react-router-dom';
 
 function Sidebar({ onLogout }) {
-  return (
-    <Box w="200px" p="5" bg="gray.100" h='100vh' pos='fixed' overflowY='auto' >
+  const [showProducts, setShowProducts] = useState(false);
 
+  return (
+    <Box w="200px" p="5" bg="gray.100" h="100vh" pos="fixed" overflowY="auto">
       <VStack spacing="4" align="stretch">
         <ChakraLink as={ReactRouterLink} to="/dashboard">
-          <Button>Dashboard</Button>
+          <Button variant="ghost">Dashboard</Button>
         </ChakraLink>
 
         <ChakraLink as={ReactRouterLink} to="/sell">
-          <Button variant='ghost'>Sell</Button>
+          <Button variant="ghost">Sell</Button>
         </ChakraLink>
+
         <ChakraLink as={ReactRouterLink} to="/reports">
-          <Button  mt="auto">Reports</Button>
+          <Button variant="ghost">Reports</Button>
         </ChakraLink>
-
-
 
         <ChakraLink as={ReactRouterLink} to="/users">
-          <Button>Users</Button>
+          <Button variant="ghost">Users</Button>
         </ChakraLink>
 
-        <ChakraLink as={ReactRouterLink} to="/products">
-          <Button>Products</Button>
-        </ChakraLink>
-
+        <Box>
+          <Button
+            variant="ghost"
+            rightIcon={showProducts ? <ChevronUpIcon /> : <ChevronDownIcon />}
+            onClick={() => setShowProducts(!showProducts)}
+          >
+            Products
+          </Button>
+          <Collapse in={showProducts} animateOpacity>
+            <VStack align="start" pl="4" spacing="2">
+              <ChakraLink as={ReactRouterLink} to="/products/active">
+                <Button variant="ghost" size="sm">
+                  Active Products
+                </Button>
+              </ChakraLink>
+              <ChakraLink as={ReactRouterLink} to="/products/inactive">
+                <Button variant="ghost" size="sm">
+                  Inactive Products
+                </Button>
+              </ChakraLink>
+            </VStack>
+          </Collapse>
+        </Box>
 
         <ChakraLink as={ReactRouterLink} to="/category">
-          <Button>Category</Button>
+          <Button variant="ghost">Category</Button>
         </ChakraLink>
-
-
-
-
-      </VStack >
-
+      </VStack>
     </Box>
   );
 }

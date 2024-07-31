@@ -56,7 +56,7 @@ export default function EditProduct() {
             setReorderLevel('');
             setStatus('')
             console.log('Product updated successfully');
-            navigate('/products');
+            navigate('/products/active');
             toast({
                 title: "product update successful.",
                 // description: "The user information has been updated.",

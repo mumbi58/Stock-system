@@ -69,7 +69,7 @@ export default function DeleteProduct() {
                 isClosable: true,
                 position: "top-right",
       })
-      navigate('/products');
+      navigate('/products/active');
     } else {
       const result = await response.json();
       console.error('Failed to update product:', result);
