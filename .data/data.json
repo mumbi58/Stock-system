@@ -882,6 +882,22 @@
       },
       "id": "cart-1722331196424",
       "date": "2024-08-30"
+    },
+    {
+      "0": {
+        "name": "spinach",
+        "price": 60,
+        "quantity": 6,
+        "date": "2024-07-31"
+      },
+      "1": {
+        "name": "tomatoes",
+        "price": 40,
+        "quantity": 5,
+        "date": "2024-07-31"
+      },
+      "id": "cart-1722426993458",
+      "date": "2024-07-31"
     }
   ],
   "reports": [

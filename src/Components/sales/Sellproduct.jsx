@@ -49,6 +49,11 @@ const calculateTotalQuantity = (items) => {
   return items.reduce((total, item) => total + item.quantity, 0);
 };
 
+// Function to format numbers as KES currency
+const formatCurrencyKES = (amount) => {
+  return new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES' }).format(amount);
+};
+
 export default function SellProduct() {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -157,7 +162,7 @@ export default function SellProduct() {
                         {product.name}
                       </ChakraLink>
                     </Td>
-                    <Td>{product.price}</Td>
+                    <Td>{formatCurrencyKES(product.price)}</Td>
                     <Td>{product.quantity}</Td>
                     <Td>
                       <ButtonGroup gap="1">

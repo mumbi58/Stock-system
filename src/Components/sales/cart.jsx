@@ -43,6 +43,11 @@ const Cart = () => {
     return total + (price * item.quantity);
   }, 0);
 
+  // Function to format numbers as KES currency
+const formatCurrencyKES = (amount) => {
+  return new Intl.NumberFormat('en-KE', { style: 'currency', currency: 'KES' }).format(amount);
+};
+
   // Get today's date
   const getTodayDate = () => {
     const today = new Date();
@@ -122,7 +127,10 @@ const Cart = () => {
                   ml={2}
                 />
               </Text>
-              <Text>Price: {item.price}</Text>
+              <Text>Price:
+                 {/* {item.price} */}
+              {formatCurrencyKES(item.price)}
+              </Text>
             </Box>
             <IconButton
               aria-label="Remove Item"
