@@ -1,5 +1,21 @@
 import { useState } from 'react';
-import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Input, FormLabel, HStack, VStack, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Input,
+  FormLabel,
+  HStack,
+  VStack,
+  Button,
+  Flex,
+  Spacer,
+} from '@chakra-ui/react';
 import useFetchSalesData from './Hooks/fetchsales';
 
 export default function Reports() {
@@ -7,6 +23,9 @@ export default function Reports() {
 
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(50);
+  const [searchClicked, setSearchClicked] = useState(false);
 
   // Helper function to parse date string to Date object
   const parseDate = (dateString) => {
@@ -15,17 +34,20 @@ export default function Reports() {
     return new Date(`${year}-${month}-${day}`);
   };
 
-  const filteredSales = sales.filter(sale => {
+  const filteredSales = searchClicked ? sales.filter(sale => {
     if (!startDate && !endDate) return true;
 
     const saleDate = sale.date ? parseDate(sale.date) : new Date();
     const start = startDate ? parseDate(startDate) : new Date(0);
     const end = endDate ? parseDate(endDate) : new Date();
     return saleDate >= start && saleDate <= end;
-  });
+  }) : sales;
+
+  // Get the last 100 sales
+  const recentSales = filteredSales.slice(-100);
 
   // Process sales data to combine products with the same name and sum their quantities
-  const processedProducts = filteredSales.reduce((acc, sale) => {
+  const processedProducts = recentSales.reduce((acc, sale) => {
     Object.values(sale).forEach((item) => {
       if (item.name) {
         const existingProduct = acc.find(product => product.name === item.name);
@@ -43,6 +65,12 @@ export default function Reports() {
   const calculateTotalAmount = (products) => {
     return products.reduce((total, product) => total + product.totalPrice, 0);
   };
+
+  // Pagination
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = processedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(processedProducts.length / productsPerPage);
 
   const handlePrintReports = () => {
     const printWindow = window.open('', '_blank');
@@ -78,7 +106,7 @@ export default function Reports() {
                     </tr>
                   </thead>
                   <tbody>
-                    ${processedProducts.map(product => `
+                    ${currentProducts.map(product => `
                       <tr>
                         <td>${product.name}</td>
                         <td>${product.quantity}</td>
@@ -88,7 +116,7 @@ export default function Reports() {
                     `).join('')}
                     <tr>
                       <td colspan="3"><strong>Total Amount</strong></td>
-                      <td><strong>Ksh ${calculateTotalAmount(processedProducts).toFixed(2)}</strong></td>
+                      <td><strong>Ksh ${calculateTotalAmount(currentProducts).toFixed(2)}</strong></td>
                     </tr>
                   </tbody>
                 </table>
@@ -107,7 +135,16 @@ export default function Reports() {
 
   return (
     <Box padding="4" bg="gray.100" maxW="3xl" margin="auto">
-      <Heading as="h1" size="xl" mb="4">Sales Products</Heading>
+      <Flex justify="space-between" mb="4">
+        <Heading as="h1" size="xl">Sales Products</Heading>
+        <Button onClick={handlePrintReports} mt="2" border="2px"
+          borderColor="gray.200"
+          colorScheme="teal"
+          variant="outline"
+          _hover={{ bg: "teal.100" }}
+          _focus={{ boxShadow: "outline" }}>Print Reports</Button>
+
+      </Flex>
 
       <HStack spacing="4" mb="4" align="center" justify="center">
         <VStack align="flex-start" spacing="1">
@@ -118,9 +155,9 @@ export default function Reports() {
             size="sm"
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
-            borderColor="teal.300"
-            _hover={{ borderColor: 'teal.400' }}
-            _focus={{ borderColor: 'teal.500' }}
+            borderColor="gray.300"
+            _hover={{ borderColor: 'gray.400' }}
+            _focus={{ borderColor: 'gray.500' }}
           />
         </VStack>
         <VStack align="flex-start" spacing="1">
@@ -131,11 +168,23 @@ export default function Reports() {
             size="sm"
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
-            borderColor="teal.300"
-            _hover={{ borderColor: 'teal.400' }}
-            _focus={{ borderColor: 'teal.500' }}
+            borderColor="gray.300"
+            _hover={{ borderColor: 'gray.400' }}
+            _focus={{ borderColor: 'gray.500' }}
           />
         </VStack>
+        <Button
+          onClick={() => setSearchClicked(true)}
+          mt="6"
+          border="2px"
+          borderColor="gray.200"
+          colorScheme="teal"
+          variant="outline"
+          _hover={{ bg: "teal.100" }}
+          _focus={{ boxShadow: "outline" }}
+        >
+          Search
+        </Button>
       </HStack>
 
       <Table variant="striped" colorScheme="teal">
@@ -148,22 +197,33 @@ export default function Reports() {
           </Tr>
         </Thead>
         <Tbody>
-          {processedProducts.map((product, index) => (
+          {currentProducts.map((product, index) => (
             <Tr key={index}>
               <Td>{product.name}</Td>
               <Td>{product.quantity}</Td>
-              <Td>{product.price.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td> {/* Format price */}
-              <Td>{product.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td> {/* Format totalPrice */}
+              <Td>{product.price.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td>
+              <Td>{product.totalPrice.toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</Td>
             </Tr>
           ))}
           <Tr>
             <Td colSpan="3"><strong>Total Amount</strong></Td>
-            <Td><strong>{calculateTotalAmount(processedProducts).toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</strong></Td>
+            <Td><strong>{calculateTotalAmount(currentProducts).toLocaleString('en-US', { style: 'currency', currency: 'KES' })}</strong></Td>
           </Tr>
         </Tbody>
       </Table>
 
-      <Button onClick={handlePrintReports} colorScheme="teal" mt="4">Print Reports</Button>
+      <Flex justify="space-between" mt="4">
+        {currentPage > 1 && (
+          <Button onClick={() => setCurrentPage(prev => prev - 1)} colorScheme="teal">
+            Previous
+          </Button>
+        )}
+        {totalPages > currentPage && (
+          <Button onClick={() => setCurrentPage(prev => prev + 1)} colorScheme="teal">
+            Next
+          </Button>
+        )}
+      </Flex>
     </Box>
   );
 }

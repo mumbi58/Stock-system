@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useContext, createContext } from 'react';
 import { Link as ReactRouterLink } from "react-router-dom";
-import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, ButtonGroup, TableContainer, useToast } from '@chakra-ui/react';
+import { Box, Link as ChakraLink, Stat, StatLabel, StatNumber, Table, Thead, Tbody, Tr, Th, Td, Button, Flex, ButtonGroup, TableContainer, useToast, Input, IconButton } from '@chakra-ui/react';
 import { MdAddShoppingCart } from "react-icons/md";
+import { SearchIcon } from "@chakra-ui/icons";
 import { useNavigate } from 'react-router-dom';
 
 export const CartContext = createContext();
@@ -50,6 +51,7 @@ const calculateTotalQuantity = (items) => {
 
 export default function SellProduct() {
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const { cartItems, setCartItems } = useContext(CartContext);
   const toast = useToast();
   const [showProduct, setShowProduct] = useState(false);
@@ -59,6 +61,7 @@ export default function SellProduct() {
   const [currentPage, setCurrentPage] = useState(1);
   const productsPerPage = 7;
 
+  // Handle adding product to cart
   const handleAddToCart = (product) => {
     setCartItems((prevItems) => computeCartItems(prevItems, product));
     toast({
@@ -70,6 +73,7 @@ export default function SellProduct() {
     });
   };
 
+  // Fetch products from API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -86,16 +90,23 @@ export default function SellProduct() {
     fetchProducts();
   }, []);
 
+  // Filtering logic
+  const filteredProducts = searchQuery.length >= 3
+    ? products.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    : products;
+
   // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
   return (
     <Box p="5" shadow="md" width="100%" height="100%" pl='200px'>
       <Stat>
-        <Flex justify="space-between" align="center">
+        <Flex justify="space-between" align="center" mb="4">
           <StatLabel style={{ fontSize: "20px" }}>Product List</StatLabel>
           <ButtonGroup gap="1">
             <Button
@@ -108,6 +119,23 @@ export default function SellProduct() {
               {calculateTotalQuantity(cartItems)}
             </Button>
           </ButtonGroup>
+        </Flex>
+
+        <Flex mb="4" alignItems="center">
+          <Input
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            width="300px"
+            mr="2"
+          />
+          <IconButton
+            aria-label="Search"
+            icon={<SearchIcon />}
+            onClick={() => { }}
+            colorScheme="teal"
+            disabled={searchQuery.length < 3}
+          />
         </Flex>
 
         <StatNumber>

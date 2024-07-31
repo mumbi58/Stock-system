@@ -161,12 +161,13 @@
   ],
   "products": [
     {
-      "id": "ea01",
       "name": "spinach",
       "price": 60,
       "quantity": "800",
       "description": "fresh",
-      "reorder_level": "70"
+      "reorder_level": "70",
+      "status": "deleted",
+      "id": "ea01"
     },
     {
       "id": "ea02",
@@ -298,82 +299,246 @@
     }
   ],
   "sales": [
-    {
-      "0": {
-        "name": "spinach",
-        "price": 60,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "1": {
-        "name": "tomatoes",
-        "price": 40,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "2": {
-        "name": "carrots",
-        "price": 30,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "id": "cart-1721986708162",
-      "date": "2024-07-26"
-    },
-    {
-      "0": {
-        "name": "potatoes",
-        "price": 25,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "1": {
-        "name": "onions",
-        "price": 20,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "2": {
-        "name": "garlic",
-        "price": 80,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "3": {
-        "name": "bell peppers",
-        "price": 50,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "id": "cart-1721986799491",
-      "date": "2024-07-20"
-    },
-    {
-      "0": {
-        "name": "spinach",
-        "price": 60,
-        "quantity": 1,
-        "date": "2024-07-26"
-      },
-      "id": "cart-1721987112430",
-      "date": "2024-07-26"
-    }
-  ],
-  "notifications": [
-    {
-      "id": "1",
-      "product_id": 1,
-      "message": "Product A stock is below reorder level",
-      "notification_date": "2024-06-07",
-      "status": "unread"
-    },
-    {
-      "id": "2",
-      "product_id": 2,
-      "message": "Product B stock is below reorder level",
-      "notification_date": "2024-06-08",
-      "status": "unread"
-    }
+   
+        {
+          "0": { "name": "spinach", "price": 60, "quantity": 1, "date": "2024-07-26" },
+          "1": { "name": "tomatoes", "price": 40, "quantity": 1, "date": "2024-07-26" },
+          "2": { "name": "carrots", "price": 30, "quantity": 1, "date": "2024-07-26" },
+          "id": "cart-1721986708162",
+          "date": "2024-07-26"
+        },
+        {
+          "0": { "name": "potatoes", "price": 25, "quantity": 1, "date": "2024-07-26" },
+          "1": { "name": "onions", "price": 20, "quantity": 1, "date": "2024-07-26" },
+          "2": { "name": "garlic", "price": 80, "quantity": 1, "date": "2024-07-26" },
+          "3": { "name": "bell peppers", "price": 50, "quantity": 1, "date": "2024-07-26" },
+          "id": "cart-1721986799491",
+          "date": "2024-07-20"
+        },
+        {
+          "0": { "name": "spinach", "price": 60, "quantity": 1, "date": "2024-07-26" },
+          "id": "cart-1721987112430",
+          "date": "2024-07-26"
+        },
+        {
+          "0": { "name": "bell peppers", "price": 50, "quantity": 1, "date": "2024-07-30" },
+          "id": "cart-1722331196386",
+          "date": "2024-07-30"
+        },
+        {
+          "0": { "name": "lettuce", "price": 40, "quantity": 2, "date": "2024-07-25" },
+          "1": { "name": "cucumbers", "price": 35, "quantity": 1, "date": "2024-07-25" },
+          "id": "cart-1722331196387",
+          "date": "2024-07-25"
+        },
+        {
+          "0": { "name": "mushrooms", "price": 90, "quantity": 1, "date": "2024-07-26" },
+          "1": { "name": "zucchini", "price": 60, "quantity": 1, "date": "2024-07-26" },
+          "2": { "name": "chili peppers", "price": 45, "quantity": 1, "date": "2024-07-26" },
+          "id": "cart-1722331196388",
+          "date": "2024-07-26"
+        },
+        {
+          "0": { "name": "pumpkins", "price": 55, "quantity": 1, "date": "2024-07-27" },
+          "1": { "name": "sweet corn", "price": 20, "quantity": 3, "date": "2024-07-27" },
+          "id": "cart-1722331196389",
+          "date": "2024-07-27"
+        },
+        {
+          "0": { "name": "broccoli", "price": 70, "quantity": 1, "date": "2024-07-28" },
+          "1": { "name": "cauliflower", "price": 60, "quantity": 2, "date": "2024-07-28" },
+          "2": { "name": "kale", "price": 45, "quantity": 2, "date": "2024-07-28" },
+          "id": "cart-1722331196390",
+          "date": "2024-07-28"
+        },
+        {
+          "0": { "name": "avocados", "price": 90, "quantity": 3, "date": "2024-07-29" },
+          "id": "cart-1722331196391",
+          "date": "2024-07-29"
+        },
+        {
+          "0": { "name": "apples", "price": 120, "quantity": 5, "date": "2024-07-30" },
+          "1": { "name": "bananas", "price": 80, "quantity": 6, "date": "2024-07-30" },
+          "id": "cart-1722331196392",
+          "date": "2024-07-30"
+        },
+        {
+          "0": { "name": "oranges", "price": 90, "quantity": 5, "date": "2024-07-31" },
+          "1": { "name": "grapes", "price": 70, "quantity": 2, "date": "2024-07-31" },
+          "id": "cart-1722331196393",
+          "date": "2024-07-31"
+        },
+        {
+          "0": { "name": "blueberries", "price": 120, "quantity": 4, "date": "2024-07-31" },
+          "id": "cart-1722331196394",
+          "date": "2024-07-31"
+        },
+        {
+          "0": { "name": "pears", "price": 75, "quantity": 6, "date": "2024-08-01" },
+          "1": { "name": "plums", "price": 60, "quantity": 3, "date": "2024-08-01" },
+          "id": "cart-1722331196395",
+          "date": "2024-08-01"
+        },
+        {
+          "0": { "name": "peaches", "price": 85, "quantity": 4, "date": "2024-08-02" },
+          "1": { "name": "cherries", "price": 95, "quantity": 2, "date": "2024-08-02" },
+          "id": "cart-1722331196396",
+          "date": "2024-08-02"
+        },
+        {
+          "0": { "name": "pomegranates", "price": 130, "quantity": 3, "date": "2024-08-03" },
+          "id": "cart-1722331196397",
+          "date": "2024-08-03"
+        },
+        {
+          "0": { "name": "kiwis", "price": 70, "quantity": 5, "date": "2024-08-04" },
+          "1": { "name": "mangoes", "price": 120, "quantity": 2, "date": "2024-08-04" },
+          "id": "cart-1722331196398",
+          "date": "2024-08-04"
+        },
+        {
+          "0": { "name": "lemons", "price": 40, "quantity": 10, "date": "2024-08-05" },
+          "1": { "name": "limes", "price": 50, "quantity": 8, "date": "2024-08-05" },
+          "id": "cart-1722331196399",
+          "date": "2024-08-05"
+        },
+        {
+          "0": { "name": "watermelons", "price": 60, "quantity": 3, "date": "2024-08-06" },
+          "1": { "name": "pineapples", "price": 75, "quantity": 2, "date": "2024-08-06" },
+          "id": "cart-1722331196400",
+          "date": "2024-08-06"
+        },
+        {
+          "0": { "name": "strawberries", "price": 90, "quantity": 6, "date": "2024-08-07" },
+          "1": { "name": "blackberries", "price": 80, "quantity": 4, "date": "2024-08-07" },
+          "id": "cart-1722331196401",
+          "date": "2024-08-07"
+        },
+        {
+          "0": { "name": "rhubarb", "price": 55, "quantity": 7, "date": "2024-08-08" },
+          "id": "cart-1722331196402",
+          "date": "2024-08-08"
+        },
+        {
+          "0": { "name": "cantaloupe", "price": 65, "quantity": 3, "date": "2024-08-09" },
+          "1": { "name": "honeydew", "price": 70, "quantity": 2, "date": "2024-08-09" },
+          "id": "cart-1722331196403",
+          "date": "2024-08-09"
+        },
+        {
+          "0": { "name": "apricots", "price": 55, "quantity": 6, "date": "2024-08-10" },
+          "1": { "name": "figs", "price": 80, "quantity": 5, "date": "2024-08-10" },
+          "id": "cart-1722331196404",
+          "date": "2024-08-10"
+        },
+        {
+          "0": { "name": "dates", "price": 100, "quantity": 4, "date": "2024-08-11" },
+          "1": { "name": "raisins", "price": 50, "quantity": 7, "date": "2024-08-11" },
+          "id": "cart-1722331196405",
+          "date": "2024-08-11"
+        },
+        {
+          "0": { "name": "dragon fruit", "price": 150, "quantity": 2, "date": "2024-08-12" },
+          "id": "cart-1722331196406",
+          "date": "2024-08-12"
+        },
+        {
+          "0": { "name": "passion fruit", "price": 80, "quantity": 6, "date": "2024-08-13" },
+          "id": "cart-1722331196407",
+          "date": "2024-08-13"
+        },
+        {
+          "0": { "name": "guavas", "price": 70, "quantity": 5, "date": "2024-08-14" },
+          "id": "cart-1722331196408",
+          "date": "2024-08-14"
+        },
+        {
+          "0": { "name": "rhubarb", "price": 55, "quantity": 7, "date": "2024-08-15" },
+          "id": "cart-1722331196409",
+          "date": "2024-08-15"
+        },
+        {
+          "0": { "name": "lemons", "price": 40, "quantity": 10, "date": "2024-08-16" },
+          "1": { "name": "limes", "price": 50, "quantity": 8, "date": "2024-08-16" },
+          "id": "cart-1722331196410",
+          "date": "2024-08-16"
+        },
+        {
+          "0": { "name": "avocados", "price": 90, "quantity": 3, "date": "2024-08-17" },
+          "id": "cart-1722331196411",
+          "date": "2024-08-17"
+        },
+        {
+          "0": { "name": "figs", "price": 80, "quantity": 5, "date": "2024-08-18" },
+          "id": "cart-1722331196412",
+          "date": "2024-08-18"
+        },
+        {
+          "0": { "name": "grapefruits", "price": 70, "quantity": 3, "date": "2024-08-19" },
+          "id": "cart-1722331196413",
+          "date": "2024-08-19"
+        },
+        {
+          "0": { "name": "blueberries", "price": 120, "quantity": 4, "date": "2024-08-20" },
+          "id": "cart-1722331196414",
+          "date": "2024-08-20"
+        },
+        {
+          "0": { "name": "apricots", "price": 55, "quantity": 6, "date": "2024-08-21" },
+          "1": { "name": "peaches", "price": 85, "quantity": 4, "date": "2024-08-21" },
+          "id": "cart-1722331196415",
+          "date": "2024-08-21"
+        },
+        {
+          "0": { "name": "mangoes", "price": 120, "quantity": 2, "date": "2024-08-22" },
+          "1": { "name": "kiwis", "price": 70, "quantity": 5, "date": "2024-08-22" },
+          "id": "cart-1722331196416",
+          "date": "2024-08-22"
+        },
+        {
+          "0": { "name": "oranges", "price": 90, "quantity": 5, "date": "2024-08-23" },
+          "id": "cart-1722331196417",
+          "date": "2024-08-23"
+        },
+        {
+          "0": { "name": "grapes", "price": 70, "quantity": 2, "date": "2024-08-24" },
+          "id": "cart-1722331196418",
+          "date": "2024-08-24"
+        },
+        {
+          "0": { "name": "pomegranates", "price": 130, "quantity": 3, "date": "2024-08-25" },
+          "id": "cart-1722331196419",
+          "date": "2024-08-25"
+        },
+        {
+          "0": { "name": "passion fruit", "price": 80, "quantity": 6, "date": "2024-08-26" },
+          "id": "cart-1722331196420",
+          "date": "2024-08-26"
+        },
+        {
+          "0": { "name": "guavas", "price": 70, "quantity": 5, "date": "2024-08-27" },
+          "id": "cart-1722331196421",
+          "date": "2024-08-27"
+        },
+        {
+          "0": { "name": "dragon fruit", "price": 150, "quantity": 2, "date": "2024-08-28" },
+          "id": "cart-1722331196422",
+          "date": "2024-08-28"
+        },
+        {
+          "0": { "name": "cantaloupe", "price": 65, "quantity": 3, "date": "2024-08-29" },
+          "1": { "name": "honeydew", "price": 70, "quantity": 2, "date": "2024-08-29" },
+          "id": "cart-1722331196423",
+          "date": "2024-08-29"
+        },
+        {
+          "0": { "name": "dates", "price": 100, "quantity": 4, "date": "2024-08-30" },
+          "1": { "name": "raisins", "price": 50, "quantity": 7, "date": "2024-08-30" },
+          "id": "cart-1722331196424",
+          "date": "2024-08-30"
+        }
+     
+    
   ],
   "reports": [
     {
