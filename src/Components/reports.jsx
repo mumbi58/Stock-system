@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import {
   Box,
   Heading,
@@ -24,7 +25,7 @@ export default function Reports() {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(50);
+  const [productsPerPage] = useState(10);
   const [searchClicked, setSearchClicked] = useState(false);
 
   // Helper function to parse date string to Date object
@@ -224,6 +225,6 @@ export default function Reports() {
           </Button>
         )}
       </Flex>
-    </Box>
+    </Box>  
   );
 }

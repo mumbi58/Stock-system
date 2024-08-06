@@ -96,6 +96,7 @@ export default function Products() {
                 <Tr>
                   <Th>Name</Th>
                   <Th>Price</Th>
+                  <Th>Quantity</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -112,6 +113,9 @@ export default function Products() {
                         </ChakraLink>
                       </Td>
                       <Td>{formatPrice(product.price)}</Td>
+                      <Td>{(product.quantity)}</Td>
+
+
                       <ButtonGroup gap="1">
                         <ChakraLink as={ReactRouterLink} to={`/edit/${product.id}`}>
                           <Button

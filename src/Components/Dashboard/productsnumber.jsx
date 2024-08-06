@@ -16,7 +16,7 @@ export default function ProductNo() {
     }
 
     const handleProduct = () => {
-        navigate('/products')
+        navigate('/products/active')
 
     }
 

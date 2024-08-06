@@ -118,20 +118,20 @@
       "id": "d832"
     },
     {
-      "id": "2416",
+      "email": "kariukimumbi475@gmail.com",
+      "userName": "JDOE",
+      "status": "active",
+      "role": "shop keeper",
       "firstName": "John",
       "secondName": "doe",
-      "userName": "JDOE",
-      "email": "kariukimumbi475@gmail.com",
-      "status": "inactive",
-      "role": "shop keeper",
-      "password": "Hs4x03oX"
+      "password": "Hs4x03oX",
+      "id": "2416"
     },
     {
       "email": "kariukimumbi475@gmail.com",
       "userName": "erudite",
       "status": "inactive",
-      "role": "shop keeper",
+      "role": "admin",
       "firstName": "Akinyi",
       "secondName": "Schola",
       "password": "akinyi",
@@ -897,6 +897,16 @@
         "date": "2024-07-31"
       },
       "id": "cart-1722426993458",
+      "date": "2024-07-31"
+    },
+    {
+      "0": {
+        "name": "spinach",
+        "price": 60,
+        "quantity": 1,
+        "date": "2024-07-31"
+      },
+      "id": "cart-1722429820290",
       "date": "2024-07-31"
     }
   ],
